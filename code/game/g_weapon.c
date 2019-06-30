@@ -591,7 +591,7 @@ int G_GetWeaponDamage( int weapon, qboolean player ) {
 			// RealRTCW weapons
 			case WP_MP34: return sk_plr_dmg_mp34.integer;
 			case WP_MP44: return sk_plr_dmg_mp44.integer;
-			case WP_TT33: return sk_plr_dmg_tt33.integer;
+			case WP_P38: return sk_plr_dmg_p38.integer;
 			case WP_PPSH: return sk_plr_dmg_ppsh.integer;
 			case WP_MOSIN: return sk_plr_dmg_mosin.integer;
 			case WP_G43: return sk_plr_dmg_g43.integer;
@@ -634,7 +634,7 @@ int G_GetWeaponDamage( int weapon, qboolean player ) {
 			// RealRTCW weapons
 			case WP_MP34: return sk_ai_dmg_mp34.integer;
 			case WP_MP44: return sk_ai_dmg_mp44.integer;
-			case WP_TT33: return sk_ai_dmg_tt33.integer;
+			case WP_P38: return sk_ai_dmg_p38.integer;
 			case WP_PPSH: return sk_ai_dmg_ppsh.integer;
 			case WP_MOSIN: return sk_ai_dmg_mosin.integer;
 			case WP_G43: return sk_ai_dmg_g43.integer;
@@ -704,7 +704,7 @@ float G_GetWeaponSpread( int weapon ) {
 			case WP_MP40:       return 950; // RealRTCW was 1000
 			// RealRTCW weapons
 			case WP_MP34:       return 1050; // RealRTCW was 1100
-			case WP_TT33:       return 550; // RealRTCW was 750
+			case WP_P38:        return 550; // RealRTCW was 750
 			case WP_PPSH:       return 1200; 
 			case WP_MOSIN:      return 400;
 			case WP_G43:        return 400; // was 550
@@ -780,8 +780,8 @@ float G_GetWeaponSpread( int weapon ) {
 #define MP34_SPREAD     G_GetWeaponSpread( WP_MP34 )
 #define MP34_DAMAGE(e)     G_GetWeaponDamage( WP_MP34, e ) 
 
-#define TT33_SPREAD		G_GetWeaponSpread( WP_TT33 )
-#define TT33_DAMAGE(e)		G_GetWeaponDamage( WP_TT33, e )
+#define P38_SPREAD		G_GetWeaponSpread( WP_P38 )
+#define P38_DAMAGE(e)		G_GetWeaponDamage( WP_P38, e )
 
 #define REVOLVER_SPREAD		G_GetWeaponSpread( WP_REVOLVER )
 #define REVOLVER_DAMAGE(e)		G_GetWeaponDamage( WP_REVOLVER, e )
@@ -1921,8 +1921,8 @@ void FireWeapon( gentity_t *ent ) {
 	case WP_MP34: 
 		Bullet_Fire( ent, MP34_SPREAD * aimSpreadScale, MP34_DAMAGE(isPlayer) );
 		break;
-	case WP_TT33:
-		Bullet_Fire( ent, TT33_SPREAD * aimSpreadScale, TT33_DAMAGE(isPlayer) );
+	case WP_P38:
+		Bullet_Fire( ent, P38_SPREAD * aimSpreadScale, P38_DAMAGE(isPlayer) );
 		break;
 	case WP_REVOLVER:
 		Bullet_Fire( ent, REVOLVER_SPREAD * aimSpreadScale, REVOLVER_DAMAGE(isPlayer) );

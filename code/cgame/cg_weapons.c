@@ -56,7 +56,7 @@ int weapBanks[MAX_WEAP_BANKS][MAX_WEAPS_IN_BANK] = {
 	// bank
 	{0,                     0,                      0,            0,               0            },  //	0 (empty)
 	{WP_KNIFE,              0,                      0,            0,               0            },  //	1
-	{WP_LUGER,              WP_COLT,                WP_TT33,      WP_REVOLVER,     0            },  //	2
+	{WP_LUGER,              WP_COLT,                WP_P38,       WP_REVOLVER,     0            },  //	2
 	{WP_MP40,               WP_MP34,                WP_STEN,      WP_THOMPSON,     WP_PPSH      },  //	3
 	{WP_MAUSER,             WP_GARAND,              WP_MOSIN,     0,               0            },  //	4
     {WP_G43,                WP_M1GARAND,            0,            0,               0            },  //	5
@@ -1333,11 +1333,11 @@ weaponInfo->handsSkin = trap_R_RegisterSkin(handsskin);
 		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
 		break;
 	
-	 case WP_TT33:
+	 case WP_P38:
 		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
-		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/tt33/tt33_fire.wav" );
-		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/tt33/tt33_far.wav" ); 
-		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/tt33/tt33_reload.wav" );
+		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/p38/p38_fire.wav" );
+		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/p38/p38_far.wav" ); 
+		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/p38/p38_reload.wav" );
 		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
 		break;
 	
@@ -3151,7 +3151,7 @@ void CG_AddViewWeapon( playerState_t *ps ) {
 		break;
 		case WP_LUGER:
 		case WP_SILENCER:
-		case WP_TT33:
+		case WP_P38:
 		case WP_AKIMBO:
 			 gunoff[0] = -2;
 		     gunoff[1] = 0;
@@ -4804,7 +4804,7 @@ void CG_WeaponFireRecoil( int weapon ) {
 	case WP_LUGER:
 	case WP_SILENCER:
 	case WP_COLT:
-	case WP_TT33:
+	case WP_P38:
 	case WP_AKIMBO: 
 	break;
 	case WP_REVOLVER:
@@ -5313,7 +5313,7 @@ void CG_MissileHitWall( int weapon, int clientNum, vec3_t origin, vec3_t dir, in
 	case WP_MP40:
 	// RealRTCW weapons
 	case WP_MP34:
-	case WP_TT33:
+	case WP_P38:
 	case WP_PPSH:
 	case WP_MOSIN:
 	case WP_G43:

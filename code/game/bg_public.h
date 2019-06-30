@@ -552,7 +552,7 @@ typedef enum {
 	WP_TESLA,               // 10
 	// RealRTCW weapons
 	WP_MP34,                // 11
-	WP_TT33,                // 12
+	WP_P38 ,                // 12
 	WP_PPSH,                // 13
 	WP_MOSIN,               // 14
 	WP_G43,                 // 15
@@ -630,7 +630,7 @@ extern int weapAlts[];  // defined in bg_misc.c
 #define WP_BEGINSECONDARY   WP_SNIPERRIFLE
 #define WP_LASTSECONDARY    WP_FG42SCOPE
 
-#define WEAPS_ONE_HANDED    ( ( 1 << WP_KNIFE ) | ( 1 << WP_LUGER ) | ( 1 << WP_COLT ) | ( 1 << WP_SILENCER ) | ( 1 << WP_GRENADE_LAUNCHER ) | ( 1 << WP_GRENADE_PINEAPPLE ) | ( 1 << WP_TT33 ) | ( 1 << WP_REVOLVER ) )
+#define WEAPS_ONE_HANDED    ( ( 1 << WP_KNIFE ) | ( 1 << WP_LUGER ) | ( 1 << WP_COLT ) | ( 1 << WP_SILENCER ) | ( 1 << WP_GRENADE_LAUNCHER ) | ( 1 << WP_GRENADE_PINEAPPLE ) | ( 1 << WP_P38 ) | ( 1 << WP_REVOLVER ) )
 //----(SA)	end
 
 typedef enum {
@@ -1170,7 +1170,7 @@ typedef enum {
 	MOD_TESLA,
 	// RealRTCW weapons
 	MOD_MP34,
-	MOD_TT33,
+	MOD_P38,
 	MOD_PPSH,
 	MOD_MOSIN,
 	MOD_G43,
