@@ -51,16 +51,16 @@ If you have questions concerning this license or the applicable additional terms
   #define GAMENAME_FOR_MASTER		"foobar"	// must NOT contain whitespace
 //  #define LEGACY_PROTOCOL	// You probably don't need this for your standalone game
 #else
-  #define PRODUCT_NAME			"RealRTCW" // iortcw
+  #define PRODUCT_NAME			"CastleGothicstein" // iortcw
   #define BASEGAME			"main"
   #define CLIENT_WINDOW_TITLE     	"Return To Castle Wolfenstein"
-  #define CLIENT_WINDOW_MIN_TITLE 	"RealRTCW" // iowolfsp
+  #define CLIENT_WINDOW_MIN_TITLE 	"CastleGothicstein" // iowolfsp
 #ifdef USE_XDG
-  #define HOMEPATH_NAME_UNIX		"RealRTCW"
+  #define HOMEPATH_NAME_UNIX		"CastleGothicstein"
 #else
   #define HOMEPATH_NAME_UNIX		".wolf"
 #endif
-  #define HOMEPATH_NAME_WIN		"RealRTCW"
+  #define HOMEPATH_NAME_WIN		"CastleGothicstein"
   #define HOMEPATH_NAME_MACOSX		HOMEPATH_NAME_WIN
   #define GAMENAME_FOR_MASTER		"wolfsp"
   #define LEGACY_PROTOCOL
