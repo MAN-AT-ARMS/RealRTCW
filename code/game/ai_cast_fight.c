@@ -1572,7 +1572,6 @@ AICast_CanMoveWhileFiringWeapon
 qboolean AICast_CanMoveWhileFiringWeapon( int weaponnum ) {
 	switch ( weaponnum ) {
 	case WP_MAUSER:
-	case WP_MOSIN:
 	case WP_GARAND:
 	case WP_SNIPERRIFLE:    //----(SA)	added
 	case WP_SNOOPERSCOPE:   //----(SA)	added
@@ -1854,8 +1853,6 @@ float AICast_GetWeaponSoundRange( int weapon ) {
 	case    WP_MP40:
 	case    WP_MP34:
 	case    WP_THOMPSON:
-	case    WP_PPSH:
-	case    WP_REVOLVER:
 		return 1000;
 
 	case    WP_FG42:
@@ -1868,7 +1865,6 @@ float AICast_GetWeaponSoundRange( int weapon ) {
 
 	case    WP_SNIPERRIFLE:
 	case    WP_MAUSER:
-	case    WP_MOSIN:
 	case    WP_G43:
 	case    WP_M1GARAND:
 		return 2000;

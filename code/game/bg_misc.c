@@ -56,12 +56,9 @@ extern vmCvar_t g_gametype;
 #define MAX_AMMO_GARAND 5
 #define MAX_AMMO_FG42   MAX_AMMO_MAUSER
 #define MAX_AMMO_BAR    150
-#define MAX_AMMO_TTAMMO 200
-#define MAX_AMMO_MOSINA 50
 #define MAX_AMMO_BARAMMO    150  
 #define MAX_AMMO_44AMMO     120
 #define MAX_AMMO_M97        24
-#define MAX_AMMO_REVOLVER   24
 
 
 // these defines are matched with the character torso animations
@@ -97,7 +94,7 @@ ammotable_t ammoTable[] = {
 	//	AMMO			AMT.	CLIP	TIME	DELAY			SHOT
 	{   0,              0,      0,      0,      50,             0,      0,      0,      0                       },  //	WP_NONE					// 0
 
-	{   999,            0,      999,    0,      50,             200,    0,      0,      MOD_KNIFE               },  //	WP_KNIFE				// 1
+	{   999,            0,      999,    0,      50,             300,    0,      0,      MOD_KNIFE               },  //	WP_KNIFE				// 1
 
 	{   MAX_AMMO_9MM,   1,      8,      1500,   DELAY_PISTOL,   350,    0,      0,      MOD_LUGER               },  //	WP_LUGER				// 2	
 	{   MAX_AMMO_9MM,   1,      32,     2600,   DELAY_LOW,      110,    0,      0,      MOD_MP40                },  //	WP_MP40					// 3
@@ -106,19 +103,16 @@ ammotable_t ammoTable[] = {
 	{   5,              1,      5,      1000,   DELAY_THROW,    1600,   0,      0,      MOD_GRENADE_LAUNCHER    },  //	WP_GRENADE_LAUNCHER		// 6
 	{   1,              1,      1,      1000,   DELAY_SHOULDER, 2000,   0,      0,      MOD_PANZERFAUST         },  //	WP_PANZERFAUST			// 7
 	{   MAX_AMMO_VENOM, 1,      500,    3000,   750,            45,     3500,   200,    MOD_VENOM               },  //	WP_VENOM				// 8	
-	{   100,            1,      100,    1000,   DELAY_LOW,      50,     0,      0,      MOD_FLAMETHROWER        },  //	WP_FLAMETHROWER			// 9
+	{   100,            1,      100,    1000,   DELAY_LOW,      50,     900,    500,      MOD_FLAMETHROWER      },  //	WP_FLAMETHROWER			// 9
 	{   50,             1,      50,     1000,    DELAY_LOW,      0,     0,      0,      MOD_TESLA               },  //	WP_TESLA				// 10
 	{   MAX_AMMO_9MM,   1,      32,     3100,   DELAY_LOW,      105,    0,      0,      MOD_MP34                },  //	WP_MP34					// 11
 	{   MAX_AMMO_9MM,   1,      8,      1600,   DELAY_PISTOL,   350,    0,      0,      MOD_P38                 },  //	WP_P38					// 12
-	{   MAX_AMMO_TTAMMO,  1,    71,     2900,   DELAY_LOW,      65,     0,      0,      MOD_PPSH                },  //	WP_PPSH					// 13
-	{   MAX_AMMO_MOSINA,  1,    5,      2400,   DELAY_HIGH,     1400,   0,      0,      MOD_MOSIN               },  //	WP_MOSIN				// 14
 	{   MAX_AMMO_MAUSER,  1,    10,     1800,   DELAY_LOW,      300,    0,      0,      MOD_G43                 },  //	WP_G43				    // 15
 	{   MAX_AMMO_BARAMMO, 1,    8,      1650,   DELAY_LOW,      300,    0,      0,      MOD_M1GARAND            },  //	WP_M1GARAND				// 16
 	{   MAX_AMMO_BARAMMO, 1,    20,     2250,   DELAY_LOW,      140,    0,      0,      MOD_BAR                 },  //	WP_BAR					// 17
 	{   MAX_AMMO_44AMMO,  1,    30,     2600,   DELAY_LOW,      105,    0,      0,      MOD_MP44                },  //	WP_MP44					// 18
 	{   MAX_AMMO_MAUSER,  1,    100,    2600,   DELAY_LOW,      65,     2500,   200,    MOD_MG42M               },  //	WP_MG42M                // 19
 	{   MAX_AMMO_M97,     1,    6,      2000,   DELAY_LOW,      1250,   0,      0,      MOD_M97                 },  //	WP_M97                  // 20
-	{   MAX_AMMO_REVOLVER,1,    6,      1500,   DELAY_PISTOL,   500,    0,      0,      MOD_REVOLVER            },  //	WP_REVOLVER             // 21
 
 
 	{   MAX_AMMO_45,    1,      7,      1500,   DELAY_PISTOL,   350,    0,      0,      MOD_COLT                },  //	WP_COLT					// 22
@@ -161,16 +155,13 @@ int weapAlts[] = {
 	WP_NONE,            // 10 WP_TESLA
 	WP_NONE,            // 11 WP_MP34
 	WP_NONE,            // 12 WP_P38
-	WP_NONE,            // 13 WP_PPSH
-	WP_NONE,            // 14 WP_MOSIN
 	WP_NONE,            // 15 WP_G43
 	WP_NONE,            // 16 WP_M1GARAND
 	WP_NONE,            // 17 WP_BAR
 	WP_NONE,            // 18 WP_MP44
 	WP_NONE,            // 19 WP_MG42M
 	WP_NONE,            // 20 WP_M97
-	WP_NONE,            // 21 WP_REVOLVER
-	WP_NONE,            // 22 WP_COLT	// GothicStein Akimbo REMOVED	
+	WP_AKIMBO,          // 22 WP_COLT		
 	WP_NONE,            // 23 WP_THOMPSON
 	WP_SNOOPERSCOPE,    // 24 WP_GARAND		
 	WP_NONE,            // 25 WP_GRENADE_PINEAPPLE
@@ -179,7 +170,7 @@ int weapAlts[] = {
 	WP_FG42,            // 28 WP_FG42SCOPE
 	WP_NONE,            // 29 WP_STEN
 	WP_LUGER,           // 30 WP_SILENCER	
-	WP_NONE,            // 31 WP_AKIMBO	// GothicStein Akimbo REMOVED	
+	WP_COLT,            // 31 WP_AKIMBO		
 	WP_NONE,            // 32 WP_CLASS_SPECIAL
 	WP_NONE             // 33 WP_DYNAMITE
 };
@@ -1698,61 +1689,6 @@ model="models/weapons2/p38/p38.md3"
 		{0,0,0,0}
 	},
 
-/*QUAKED weapon_ppsh (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
-"stand" values:
-	no value:	laying in a default position on it's side (default)
-	2:			upright, barrel pointing up, slightly angled (rack mount)
--------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
-model="models/weapons2/ppsh/ppsh.md3"
-*/
-	{
-		"weapon_ppsh",
-		"sound/misc/w_pkup.wav",
-		{   "models/weapons2/ppsh/ppsh.md3",
-			"models/weapons2/ppsh/v_ppsh.md3",
-			"models/weapons2/ppsh/pu_ppsh.md3",
-			0, 0 },
-
-		"icons/iconw_ppsh_1",   // icon
-		"icons/ammo9",       // ammo icon
-		"ppsh",              // pickup
-		30,
-		IT_WEAPON,
-		WP_PPSH,
-		WP_PPSH,
-		WP_PPSH,
-		"",                  // precache
-		"",                  // sounds
-		{0,0,0,0}
-	},
-
-/*QUAKED weapon_mosin (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
-"stand" values:
-	no value:	laying in a default position on it's side (default)
-	2:			upright, barrel pointing up, slightly angled (rack mount)
--------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
-model="models/weapons2/mosin/mosin.md3"
-*/
-	{
-		"weapon_mosin",
-		"sound/misc/w_pkup.wav",
-		{   "models/weapons2/mosin/mosin.md3",
-			"models/weapons2/mosin/v_mosin.md3",
-			"models/weapons2/mosin/pu_mosin.md3",
-			0, 0 },
-
-		"icons/iconw_mosin",    // icon
-		"icons/ammomosin",      // ammo icon
-		"mosin",               // pickup
-		30,
-		IT_WEAPON,
-		WP_MOSIN,
-		WP_MOSIN,
-		WP_MOSIN,
-		"",                  // precache
-		"",                  // sounds
-		{0,0,0,0}
-	},
 
 /*QUAKED weapon_g43 (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
 "stand" values:
@@ -1919,33 +1855,6 @@ model="models/multiplayer/mg42/mg42_3rd.md3"
 	},
 
 
-	/*QUAKED weapon_revolver (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
-"stand" values:
-	no value:	laying in a default position on it's side (default)
-	2:			upright, barrel pointing up, slightly angled (rack mount)
--------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
-model="models/weapons2/p38/luger.md3"
-*/
-	{
-		"weapon_revolver",
-		"sound/misc/w_pkup.wav",
-		{   "models/weapons2/44magnum/44m_3rd.md3",
-			"models/weapons2/44magnum/v_44m.md3",
-			"models/weapons2/44magnum/44m_3rd.md3",
-			0, 0 },
-
-		"icons/iconw_revolver",    // icon
-		"icons/ammo9mm",      // ammo icon
-		"revolver",              // pickup
-		30,
-		IT_WEAPON,
-		WP_REVOLVER,
-		WP_REVOLVER,
-		WP_REVOLVER,
-		"",                  // precache
-		"",                  // sounds
-		{0,0,0,0}
-	},
 
 
 	//
@@ -1954,77 +1863,6 @@ model="models/weapons2/p38/luger.md3"
 
 // RealRTCW ammo
 
-/*QUAKED ammo_ttammo (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
-used by: PPSH
-
--------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
-model="models/powerups/ammo/ttammo.md3"
-*/
-	{
-		"ammo_ttammo",
-		"sound/misc/am_pkup.wav",
-		{ "models/powerups/ammo/ttammo.md3",
-		  0, 0, 0,    0 },
-		"icons/iconw_luger_1", // icon
-		NULL,               // ammo icon
-		"ttammo",           // pickup			
-		60,
-		IT_AMMO,
-		WP_PPSH,
-		WP_PPSH,
-		WP_PPSH,
-		"",                  // precache
-		"",                  // sounds
-		{71,71,50,50}	
-	},
-
-/*QUAKED ammo_ttammo_l (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
-used by: PPSH
-
--------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
-model="models/powerups/ammo/ttammo.md3"
-*/
-	{
-		"ammo_ttammo_l",
-		"sound/misc/am_pkup.wav",
-		{ "models/powerups/ammo/ttammo_l.md3",
-		  0, 0, 0,    0 },
-		"icons/iconw_luger_1", // icon
-		NULL,               // ammo icon
-		"ttammol",           // pickup			
-		60,
-		IT_AMMO,
-		WP_PPSH,
-		WP_PPSH,
-		WP_PPSH,
-		"",                  // precache
-		"",                  // sounds
-		{142,142,100,100}	
-	},
-
-/*QUAKED ammo_mosina (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
-used by: mosin nagant
-
--------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
-model="models/powerups/ammo/mosina.md3"
-*/
-	{
-		"ammo_mosina",
-		"sound/misc/am_pkup.wav",
-		{ "models/powerups/ammo/mosina.md3",
-		  0, 0, 0,    0 },
-		"icons/icona_machinegun",    // icon
-		NULL,                       // ammo icon
-		"mosina",			       // pickup
-		50,
-		IT_AMMO,
-		WP_MOSIN,
-		WP_MOSIN,
-		WP_MOSIN,
-		"",                          // precache
-		"",                          // sounds
-		{20,20,15,15}		
-	},
 
 /*QUAKED ammo_barammo (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
 used by: Bar, M1 Garand
@@ -2146,29 +1984,6 @@ model="models/powerups/ammo/44ammo_l.md3"
 		{ 6,6,6,6 }
 	},
 
-			/*QUAKED ammo_revolver (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
-		used by: revolver
-
-		-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
-		model="models/powerups/ammo/revolverammo.md3"
-		*/
-	{
-		"ammo_revolver",
-		"sound/misc/am_pkup.wav",
-		{ "models/powerups/ammo/revolverammo.md3",
-		0, 0, 0,    0 },
-		"icons/iconw_luger_1", // icon
-		NULL,               // ammo icon
-		"revolverammo",           // pickup			
-		12,
-		IT_AMMO,
-		WP_REVOLVER,
-		WP_REVOLVER,
-		WP_REVOLVER,
-		"",                  // precache
-		"",                  // sounds
-		{ 6,6,6,6 }
-	},
 
 
 

@@ -592,14 +592,11 @@ int G_GetWeaponDamage( int weapon, qboolean player ) {
 			case WP_MP34: return sk_plr_dmg_mp34.integer;
 			case WP_MP44: return sk_plr_dmg_mp44.integer;
 			case WP_P38: return sk_plr_dmg_p38.integer;
-			case WP_PPSH: return sk_plr_dmg_ppsh.integer;
-			case WP_MOSIN: return sk_plr_dmg_mosin.integer;
 			case WP_G43: return sk_plr_dmg_g43.integer;
 			case WP_M1GARAND: return sk_plr_dmg_m1garand.integer;
 			case WP_BAR: return sk_plr_dmg_bar.integer;
 			case WP_MG42M: return sk_plr_dmg_mg42m.integer;
 			case WP_M97: return sk_plr_dmg_m97.integer;
-			case WP_REVOLVER: return sk_plr_dmg_revolver.integer;	
             // end RealRTCW
 			case WP_MORTAR: return 100;
 			case WP_GAUNTLET: return 1;
@@ -635,14 +632,11 @@ int G_GetWeaponDamage( int weapon, qboolean player ) {
 			case WP_MP34: return sk_ai_dmg_mp34.integer;
 			case WP_MP44: return sk_ai_dmg_mp44.integer;
 			case WP_P38: return sk_ai_dmg_p38.integer;
-			case WP_PPSH: return sk_ai_dmg_ppsh.integer;
-			case WP_MOSIN: return sk_ai_dmg_mosin.integer;
 			case WP_G43: return sk_ai_dmg_g43.integer;
 			case WP_M1GARAND: return sk_ai_dmg_m1garand.integer;
 			case WP_BAR: return sk_ai_dmg_bar.integer;
 			case WP_MG42M: return sk_ai_dmg_mg42m.integer;
 			case WP_M97: return sk_ai_dmg_m97.integer;
-			case WP_REVOLVER: return sk_ai_dmg_revolver.integer;
 			// end RealRTCW			
 			case WP_MORTAR: return 100;
 			case WP_GAUNTLET: return 1;
@@ -705,15 +699,12 @@ float G_GetWeaponSpread( int weapon ) {
 			// RealRTCW weapons
 			case WP_MP34:       return 1050; // RealRTCW was 1100
 			case WP_P38:        return 550; // RealRTCW was 750
-			case WP_PPSH:       return 1200; 
-			case WP_MOSIN:      return 400;
 			case WP_G43:        return 400; // was 550
 			case WP_M1GARAND:   return 400; // was 450
 			case WP_BAR:        return 800;
 		    case WP_MP44:       return 900;  
 			case WP_MG42M:      return 1700;
 			case WP_M97:        return 4800;
-			case WP_REVOLVER:   return 500; // RealRTCW was 650 
 
 			case WP_FG42SCOPE:  return 250;
 			case WP_FG42:       return 700; 
@@ -782,16 +773,6 @@ float G_GetWeaponSpread( int weapon ) {
 
 #define P38_SPREAD		G_GetWeaponSpread( WP_P38 )
 #define P38_DAMAGE(e)		G_GetWeaponDamage( WP_P38, e )
-
-#define REVOLVER_SPREAD		G_GetWeaponSpread( WP_REVOLVER )
-#define REVOLVER_DAMAGE(e)		G_GetWeaponDamage( WP_REVOLVER, e )
-
-
-#define PPSH_SPREAD     G_GetWeaponSpread( WP_PPSH )
-#define PPSH_DAMAGE(e)     G_GetWeaponDamage( WP_PPSH, e ) 
-
-#define MOSIN_SPREAD     G_GetWeaponSpread( WP_MOSIN )
-#define MOSIN_DAMAGE(e)     G_GetWeaponDamage( WP_MOSIN, e ) 
 
 #define G43_SPREAD     G_GetWeaponSpread( WP_G43 )
 #define G43_DAMAGE(e)     G_GetWeaponDamage( WP_G43, e ) 
@@ -1923,15 +1904,6 @@ void FireWeapon( gentity_t *ent ) {
 		break;
 	case WP_P38:
 		Bullet_Fire( ent, P38_SPREAD * aimSpreadScale, P38_DAMAGE(isPlayer) );
-		break;
-	case WP_REVOLVER:
-		Bullet_Fire( ent, REVOLVER_SPREAD * aimSpreadScale, REVOLVER_DAMAGE(isPlayer) );
-		break;
-	case WP_PPSH: 
-		Bullet_Fire( ent, PPSH_SPREAD * aimSpreadScale, PPSH_DAMAGE(isPlayer) );
-		break;
-	case WP_MOSIN: 
-		Bullet_Fire( ent, MOSIN_SPREAD * aimSpreadScale, MOSIN_DAMAGE(isPlayer) );
 		break;
 	case WP_G43: 
 		Bullet_Fire( ent, G43_SPREAD * aimSpreadScale, G43_DAMAGE(isPlayer) );

@@ -174,14 +174,11 @@ vmCvar_t		sk_plr_dmg_dynamite_radius;
 
 vmCvar_t		sk_plr_dmg_mp34;
 vmCvar_t		sk_plr_dmg_p38;
-vmCvar_t		sk_plr_dmg_ppsh;
-vmCvar_t		sk_plr_dmg_mosin;
 vmCvar_t		sk_plr_dmg_g43;
 vmCvar_t		sk_plr_dmg_m1garand;
 vmCvar_t		sk_plr_dmg_bar;
 vmCvar_t		sk_plr_dmg_mp44;
 vmCvar_t		sk_plr_dmg_m97;
-vmCvar_t		sk_plr_dmg_revolver;
 vmCvar_t		sk_plr_dmg_mg42m;
 
 vmCvar_t		sk_ai_dmg_knife;
@@ -212,14 +209,11 @@ vmCvar_t		sk_ai_dmg_dynamite_radius;
 
 vmCvar_t		sk_ai_dmg_mp34;
 vmCvar_t		sk_ai_dmg_p38;
-vmCvar_t		sk_ai_dmg_ppsh;
-vmCvar_t		sk_ai_dmg_mosin;
 vmCvar_t		sk_ai_dmg_g43;
 vmCvar_t		sk_ai_dmg_m1garand;
 vmCvar_t		sk_ai_dmg_bar;
 vmCvar_t		sk_ai_dmg_mp44;
 vmCvar_t		sk_ai_dmg_m97;
-vmCvar_t		sk_ai_dmg_revolver;
 vmCvar_t		sk_ai_dmg_mg42m;
 
 
@@ -270,27 +264,21 @@ cvarTable_t gameCvarTable[] = {
 	// Player
 	{ &sk_plr_dmg_mp34, "sk_plr_dmg_mp34", "6", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_plr_dmg_p38, "sk_plr_dmg_p38", "8", CVAR_CHEAT, 0, qfalse  },
-	{ &sk_plr_dmg_ppsh, "sk_plr_dmg_ppsh", "6", CVAR_CHEAT, 0, qfalse  },	
-	{ &sk_plr_dmg_mosin, "sk_plr_dmg_mosin", "35", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_plr_dmg_g43, "sk_plr_dmg_g43", "16", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_plr_dmg_m1garand, "sk_plr_dmg_m1garand", "18", CVAR_CHEAT, 0, qfalse  },	
 	{ &sk_plr_dmg_bar, "sk_plr_dmg_bar", "15", CVAR_CHEAT, 0, qfalse  }, // was 13
 	{ &sk_plr_dmg_mp44, "sk_plr_dmg_mp44", "9", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_plr_dmg_mg42m, "sk_plr_dmg_mg42m", "10", CVAR_CHEAT, 0, qfalse  }, // was 9
 	{ &sk_plr_dmg_m97, "sk_plr_dmg_m97", "9", CVAR_CHEAT, 0, qfalse  },
-	{ &sk_plr_dmg_revolver, "sk_plr_dmg_revolver", "18", CVAR_CHEAT, 0, qfalse  },
 	//AI	
 	{ &sk_ai_dmg_mp34, "sk_ai_dmg_mp34", "6", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_ai_dmg_p38, "sk_ai_dmg_p38", "8", CVAR_CHEAT, 0, qfalse  },
-	{ &sk_ai_dmg_ppsh, "sk_ai_dmg_ppsh", "6", CVAR_CHEAT, 0, qfalse  },
-	{ &sk_ai_dmg_mosin, "sk_ai_dmg_mosin", "35", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_ai_dmg_g43, "sk_ai_dmg_g43", "10", CVAR_CHEAT, 0, qfalse  },  // was 16
 	{ &sk_ai_dmg_m1garand, "sk_ai_dmg_m1garand", "10", CVAR_CHEAT, 0, qfalse  }, // was 18
 	{ &sk_ai_dmg_bar, "sk_ai_dmg_bar", "10", CVAR_CHEAT, 0, qfalse  }, // was 13
 	{ &sk_ai_dmg_mp44, "sk_ai_dmg_mp44", "8", CVAR_CHEAT, 0, qfalse  }, // was 9
 	{ &sk_ai_dmg_mg42m, "sk_ai_dmg_mg42m", "10", CVAR_CHEAT, 0, qfalse  }, // was 9
 	{ &sk_ai_dmg_m97, "sk_ai_dmg_m97", "6", CVAR_CHEAT, 0, qfalse  }, // was 9
-	{ &sk_ai_dmg_revolver, "sk_ai_dmg_revolver", "10", CVAR_CHEAT, 0, qfalse  },	// was 16
 	// End new weapons								
 
 

@@ -1619,8 +1619,10 @@ static void CG_Efx( centity_t *cent ) {
 			if ( ( cg.time / 50 ) % ( randomness + ( cg.time % randomness ) ) == 0 ) {
 				dli = cent->currentState.dl_intensity;
 				r = dli & 255;
-				g = ( dli >> 8 ) & 255;
-				b = ( dli >> 16 ) & 255;
+				g =  dli & 0;
+				b = dli & 0;  // gothicstein seems it doesn't affect anything
+				//g = ( dli >> 8 ) & 255;
+				//b = ( dli >> 16 ) & 255;
 				trap_R_AddLightToScene( cent->currentState.origin, cent->currentState.time, (float)r / 255.0f, (float)g / 255.0f, (float)b / 255.0f, 0 );
 			}
 		}

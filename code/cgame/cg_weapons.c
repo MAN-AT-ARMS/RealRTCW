@@ -56,9 +56,9 @@ int weapBanks[MAX_WEAP_BANKS][MAX_WEAPS_IN_BANK] = {
 	// bank
 	{0,                     0,                      0,            0,               0            },  //	0 (empty)
 	{WP_KNIFE,              0,                      0,            0,               0            },  //	1
-	{WP_LUGER,              WP_COLT,                WP_P38,       WP_REVOLVER,     0            },  //	2
-	{WP_MP40,               WP_MP34,                WP_STEN,      WP_THOMPSON,     WP_PPSH      },  //	3
-	{WP_MAUSER,             WP_GARAND,              WP_MOSIN,     0,               0            },  //	4
+	{WP_LUGER,              WP_COLT,                WP_P38,       0,               0            },  //	2
+	{WP_MP40,               WP_MP34,                WP_STEN,      WP_THOMPSON,     0            },  //	3
+	{WP_MAUSER,             WP_GARAND,              0,            0,               0            },  //	4
     {WP_G43,                WP_M1GARAND,            0,            0,               0            },  //	5
 	{WP_FG42,               WP_MP44,                WP_BAR,       0,               0            },  //	6
 	{WP_M97,                0,                      0,            0,               0            },  //	7
@@ -101,8 +101,6 @@ static void CG_MachineGunEjectBrassNew( centity_t *cent ) {
 	if (cent->currentState.weapon == WP_M97) //jaymod
 		return;
 
-	if (cent->currentState.weapon == WP_REVOLVER) // no brass for revolver
-		return;
 
 	le = CG_AllocLocalEntity();
 	re = &le->refEntity;
@@ -1340,31 +1338,6 @@ weaponInfo->handsSkin = trap_R_RegisterSkin(handsskin);
 		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/p38/p38_reload.wav" );
 		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
 		break;
-	
-	case WP_REVOLVER:
-		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
-		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/revolver/revolver_fire.wav" );
-		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/revolver/revolver_far.wav" ); 
-		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/revolver/revolver_reload.wav" );
-		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
-		break;
-	
-	case WP_PPSH:
-		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
-		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/ppsh/ppsh_fire.wav" );
-		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/ppsh/ppsh_far.wav" );
-		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/ppsh/ppsh_reload.wav" );
-		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
-		break;
-	
-	case WP_MOSIN:
-		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
-		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/mosin/mosin_fire.wav" );
-		weaponInfo->lastShotSound[0] = trap_S_RegisterSound("sound/weapons/mosin/mosin_fire_last.wav");
-		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/mosin/mosin_far.wav" );
-		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/mosin/mosin_reload.wav" );
-		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
-		break;
 
 	case WP_G43:
 		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
@@ -1512,6 +1485,7 @@ weaponInfo->handsSkin = trap_R_RegisterSkin(handsskin);
 
 	case WP_FLAMETHROWER:
 		//MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.7, 0.4 );
+		weaponInfo->overheatSound = trap_S_RegisterSound( "sound/weapons/flamethrower/flamethrower_overheat.wav" ); // gothicstein
 		break;
 
 	case WP_TESLA:
@@ -2873,7 +2847,7 @@ void CG_AddPlayerWeapon( refEntity_t *parent, playerState_t *ps, centity_t *cent
 #define BARREL_SMOKE_TIME 1000
 
 		if ( ps || cg.renderingThirdPerson || !isPlayer ) {
-			if ( weaponNum == WP_VENOM || weaponNum == WP_STEN || weaponNum == WP_MG42M ) {
+			if ( weaponNum == WP_VENOM || weaponNum == WP_STEN || weaponNum == WP_MG42M || weaponNum == WP_FLAMETHROWER ) { // gothicstein
 				if ( !cg_paused.integer ) {    // don't add while paused
 					// hot smoking gun
 					if ( cg.time - cent->overheatTime < 3000 ) {
@@ -3162,26 +3136,11 @@ void CG_AddViewWeapon( playerState_t *ps ) {
 		     gunoff[1] = -1;
 		     gunoff[2] = 0;
 	    break;
-		case WP_REVOLVER:
-			 gunoff[0] = -2;
-		     gunoff[1] = 0;
-		     gunoff[2] = 0;
-	    break;
-		case WP_PPSH:
-			 gunoff[0] = -1;
-		     gunoff[1] = 0;
-		     gunoff[2] = 0;
-		break;
 		case WP_MAUSER:
 		case WP_SNIPERRIFLE:
 			 gunoff[0] = -2;
 		     gunoff[1] = 0;
 		     gunoff[2] = 1;
-		break;
-		case WP_MOSIN:
-			 gunoff[0] = -2;
-		     gunoff[1] = 1;
-		     gunoff[2] = 2;
 		break;
 		case WP_G43:
 			 gunoff[0] = 0;
@@ -3339,8 +3298,6 @@ void CG_DrawWeaponSelect( void ) {
 		case WP_MP40:
 		// RealRTCW weapons
 		case WP_MP34:
-		case WP_PPSH:
-		case WP_MOSIN:
 		case WP_G43:
 		case WP_M1GARAND:
 		case WP_BAR:
@@ -4807,12 +4764,7 @@ void CG_WeaponFireRecoil( int weapon ) {
 	case WP_P38:
 	case WP_AKIMBO: 
 	break;
-	case WP_REVOLVER:
-	pitchAdd = 1;
-	yawRandom = 1;
-	     break;
 	case WP_MAUSER:
-	case WP_MOSIN:
 	case WP_GARAND:
 	case WP_G43:
 	case WP_M1GARAND:
@@ -4828,7 +4780,6 @@ void CG_WeaponFireRecoil( int weapon ) {
 	case WP_MP40:
 	// RealRTCW weapons
 	case WP_MP34:
-	case WP_PPSH:
 	case WP_BAR:
 	case WP_MP44:
 	case WP_THOMPSON:
@@ -5314,15 +5265,12 @@ void CG_MissileHitWall( int weapon, int clientNum, vec3_t origin, vec3_t dir, in
 	// RealRTCW weapons
 	case WP_MP34:
 	case WP_P38:
-	case WP_PPSH:
-	case WP_MOSIN:
 	case WP_G43:
 	case WP_M1GARAND:
 	case WP_BAR:
 	case WP_MP44:
 	case WP_MG42M:
 	case WP_M97:
-	case WP_REVOLVER:
 	case WP_FG42:
 	case WP_FG42SCOPE:
 	case WP_THOMPSON:

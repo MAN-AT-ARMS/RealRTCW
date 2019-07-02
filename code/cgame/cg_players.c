@@ -4509,9 +4509,9 @@ void CG_AddRefEntityWithPowerups( refEntity_t *ent, int powerups, int team, enti
 
 		alpha = ( 400.0 - (float)( cg.time - cg_entities[es->number].pe.teslaDamagedTime ) ) / 400.0;
 
-		ent->shaderRGBA[0] = ( unsigned char )( 50.0 * alpha );
-		ent->shaderRGBA[1] = ( unsigned char )( 130.0 * alpha );
-		ent->shaderRGBA[2] = ( unsigned char )( 255.0 * alpha );
+		ent->shaderRGBA[0] = ( unsigned char )( 255.0 * alpha ); // gothicstein red hits from tesla
+		ent->shaderRGBA[1] = ( unsigned char )( 0.0 * alpha );
+		ent->shaderRGBA[2] = ( unsigned char )( 0.0 * alpha );
 
 		if ( ( cg.time / 50 ) % ( 2 + ( cg.time % 2 ) ) == 0 ) {
 			ent->customShader = cgs.media.teslaAltDamageEffectShader;
