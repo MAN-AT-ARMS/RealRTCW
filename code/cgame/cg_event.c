@@ -493,12 +493,12 @@ static void CG_ItemPickup( int itemNum ) {
 		selectIt = qfalse;
 
 		weapon = itemid;
-
-		if ( weapon == WP_COLT ) {
-			if ( COM_BitCheck( cg.snap->ps.weapons, weapon ) ) {
-				weapon = WP_AKIMBO; // you have colt, now get akimbo (second)
-			}
-		}
+    // GothicStein Akimbo REMOVED
+		//if ( weapon == WP_COLT ) {
+			//if ( COM_BitCheck( cg.snap->ps.weapons, weapon ) ) {
+				//weapon = WP_AKIMBO; // you have colt, now get akimbo (second)
+			//}
+		//}
 
 		if ( cg_autoswitch.integer && cg.predictedPlayerState.weaponstate != WEAPON_RELOADING ) {
 

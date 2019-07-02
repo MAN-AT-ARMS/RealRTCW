@@ -434,14 +434,14 @@ int Pickup_Weapon( gentity_t *ent, gentity_t *other ) {
 //----(SA) end
 	}
 
-
-	//----(SA)	added
+     // GothicStein Akimbo REMOVED
+	//----(SA)	added 
 	// check for special colt->akimbo add (if you've got a colt already, add the second now)
-	if ( weapon == WP_COLT ) {
-		if ( COM_BitCheck( other->client->ps.weapons, WP_COLT ) ) {
-			weapon = WP_AKIMBO;
-		}
-	}
+	//if ( weapon == WP_COLT ) {
+		//if ( COM_BitCheck( other->client->ps.weapons, WP_COLT ) ) {
+			//weapon = WP_AKIMBO;
+		//}
+	//}
 //----(SA)	end
 
 	// check if player already had the weapon

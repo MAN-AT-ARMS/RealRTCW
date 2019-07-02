@@ -373,13 +373,13 @@ static void CG_TouchItem( centity_t *cent ) {
 		int weapon;
 //----(SA)	added
 		weapon = item->giTag;
-
-		if ( weapon == WP_COLT ) {
-			if ( COM_BitCheck( cg.predictedPlayerState.weapons, WP_COLT ) ) {
+// GothicStein Akimbo REMOVED
+		//if ( weapon == WP_COLT ) {
+			//if ( COM_BitCheck( cg.predictedPlayerState.weapons, WP_COLT ) ) {
 				// you got the colt, you gettin' another
-				weapon = WP_AKIMBO;
-			}
-		}
+				//weapon = WP_AKIMBO;
+			//}
+		//}
 //----(SA)	end
 
 		COM_BitSet( cg.predictedPlayerState.weapons, weapon );
