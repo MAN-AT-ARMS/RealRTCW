@@ -57,7 +57,6 @@ int weapBanks[MAX_WEAP_BANKS][MAX_WEAPS_IN_BANK] = {
 	{0,                     0,                      0,            0,               0            },  //	0 (empty)
 	{WP_KNIFE,              0,                      0,            0,               0            },  //	1
 	{WP_LUGER,              WP_COLT,                WP_P38,       0,               0            },  //	2
-	{WP_MP40,               WP_MP34,                WP_STEN,      WP_THOMPSON,     0            },  //	3
 	{WP_MAUSER,             WP_GARAND,              0,            0,               0            },  //	4
     {WP_G43,                WP_M1GARAND,            0,            0,               0            },  //	5
 	{WP_FG42,               WP_MP44,                WP_BAR,       0,               0            },  //	6
@@ -1321,15 +1320,6 @@ weaponInfo->handsSkin = trap_R_RegisterSkin(handsskin);
 		break;
 
 	// RealRTCW weapons
-
-	case WP_MP34:
-		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
-		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/mp34/mp34_fire.wav" );
-		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/mp34/mp34_far.wav" );
-		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/mp34/mp34_reload.wav" );
-		weaponInfo->overheatSound = trap_S_RegisterSound( "sound/weapons/mp40/mp40_overheat.wav" );
-		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
-		break;
 	
 	 case WP_P38:
 		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
@@ -3297,7 +3287,6 @@ void CG_DrawWeaponSelect( void ) {
 		case WP_THOMPSON:
 		case WP_MP40:
 		// RealRTCW weapons
-		case WP_MP34:
 		case WP_G43:
 		case WP_M1GARAND:
 		case WP_BAR:
@@ -4779,7 +4768,6 @@ void CG_WeaponFireRecoil( int weapon ) {
 	case WP_FG42:
 	case WP_MP40:
 	// RealRTCW weapons
-	case WP_MP34:
 	case WP_BAR:
 	case WP_MP44:
 	case WP_THOMPSON:
@@ -5263,7 +5251,6 @@ void CG_MissileHitWall( int weapon, int clientNum, vec3_t origin, vec3_t dir, in
 	case WP_SNOOPERSCOPE:
 	case WP_MP40:
 	// RealRTCW weapons
-	case WP_MP34:
 	case WP_P38:
 	case WP_G43:
 	case WP_M1GARAND:

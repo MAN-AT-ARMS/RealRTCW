@@ -551,7 +551,6 @@ typedef enum {
 	WP_FLAMETHROWER,        // 9
 	WP_TESLA,               // 10
 	// RealRTCW weapons
-	WP_MP34,                // 11
 	WP_P38 ,                // 12
 	WP_G43,                 // 15
 	WP_M1GARAND,            // 16
@@ -1166,7 +1165,6 @@ typedef enum {
 	MOD_FLAMETHROWER,
 	MOD_TESLA,
 	// RealRTCW weapons
-	MOD_MP34,
 	MOD_P38,
 	MOD_G43,
 	MOD_M1GARAND,

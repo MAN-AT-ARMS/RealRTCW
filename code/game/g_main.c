@@ -172,7 +172,6 @@ vmCvar_t		sk_plr_dmg_dynamite_radius;
 
 // RealRTCW weapons
 
-vmCvar_t		sk_plr_dmg_mp34;
 vmCvar_t		sk_plr_dmg_p38;
 vmCvar_t		sk_plr_dmg_g43;
 vmCvar_t		sk_plr_dmg_m1garand;
@@ -207,7 +206,6 @@ vmCvar_t		sk_ai_dmg_dynamite_radius;
 
 //RealRTCW weapons
 
-vmCvar_t		sk_ai_dmg_mp34;
 vmCvar_t		sk_ai_dmg_p38;
 vmCvar_t		sk_ai_dmg_g43;
 vmCvar_t		sk_ai_dmg_m1garand;
@@ -262,7 +260,6 @@ cvarTable_t gameCvarTable[] = {
 
 	// New weapons
 	// Player
-	{ &sk_plr_dmg_mp34, "sk_plr_dmg_mp34", "6", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_plr_dmg_p38, "sk_plr_dmg_p38", "8", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_plr_dmg_g43, "sk_plr_dmg_g43", "16", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_plr_dmg_m1garand, "sk_plr_dmg_m1garand", "18", CVAR_CHEAT, 0, qfalse  },	
@@ -271,7 +268,6 @@ cvarTable_t gameCvarTable[] = {
 	{ &sk_plr_dmg_mg42m, "sk_plr_dmg_mg42m", "10", CVAR_CHEAT, 0, qfalse  }, // was 9
 	{ &sk_plr_dmg_m97, "sk_plr_dmg_m97", "9", CVAR_CHEAT, 0, qfalse  },
 	//AI	
-	{ &sk_ai_dmg_mp34, "sk_ai_dmg_mp34", "6", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_ai_dmg_p38, "sk_ai_dmg_p38", "8", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_ai_dmg_g43, "sk_ai_dmg_g43", "10", CVAR_CHEAT, 0, qfalse  },  // was 16
 	{ &sk_ai_dmg_m1garand, "sk_ai_dmg_m1garand", "10", CVAR_CHEAT, 0, qfalse  }, // was 18

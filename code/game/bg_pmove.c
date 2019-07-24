@@ -440,7 +440,6 @@ if ( ! (pm->ps->aiChar))  // RealRTCW weapon weight does not affect AI now
 		if ( ( pm->ps->weapon == WP_VENOM ) || ( pm->ps->weapon == WP_PANZERFAUST ) || ( pm->ps->weapon == WP_FLAMETHROWER ) || ( pm->ps->weapon == WP_TESLA ) || ( pm->ps->weapon == WP_MG42M ) ) {
 			scale *= 0.75; 
         }
-		if ( ( pm->ps->weapon == WP_MP40 ) || ( pm->ps->weapon == WP_THOMPSON ) || ( pm->ps->weapon == WP_STEN ) || ( pm->ps->weapon == WP_MP34 ) || ( pm->ps->weapon == WP_FG42 ) || ( pm->ps->weapon == WP_MAUSER ) || ( pm->ps->weapon == WP_MP44 ) || ( pm->ps->weapon == WP_GARAND ) || ( pm->ps->weapon == WP_G43 ) || ( pm->ps->weapon == WP_BAR )  || ( pm->ps->weapon == WP_M1GARAND ) || (pm->ps->weapon == WP_M97) )  {
 			scale *= 0.90; 
 		}
 		if ( ( pm->ps->weapon == WP_LUGER ) || ( pm->ps->weapon == WP_COLT ) || ( pm->ps->weapon == WP_AKIMBO ) || ( pm->ps->weapon == WP_SILENCER ) || ( pm->ps->weapon == WP_DYNAMITE ) || ( pm->ps->weapon == WP_GRENADE_LAUNCHER ) || ( pm->ps->weapon == WP_GRENADE_PINEAPPLE )  || ( pm->ps->weapon == WP_P38  ) ) {
@@ -2649,7 +2648,6 @@ void PM_AdjustAimSpreadScale( void ) {
 		wpnScale = 0.6f;
 		break;
    // RealRTCW weapons
-	case WP_MP34:
 		wpnScale = 0.5f;
 		break;
 	case WP_P38:
@@ -3187,7 +3185,6 @@ static void PM_Weapon( void ) {
 	// machineguns should continue the anim, rather than start each fire
 	case WP_MP40:
 	// RealRTCW weapons
-	case WP_MP34:
 	case WP_BAR:
 	case WP_THOMPSON:
 	case WP_STEN:
@@ -3384,7 +3381,6 @@ static void PM_Weapon( void ) {
 	case WP_VENOM:
 	case WP_MP40:
 	// RealRTCW weapons
-	case WP_MP34:
 	case WP_BAR:
     case WP_MP44:
 	case WP_MG42M:
@@ -3506,7 +3502,6 @@ static void PM_Weapon( void ) {
 	case WP_FG42:
 	case WP_MP40:
 	// RealRTCW weapons
-	case WP_MP34:
 	case WP_BAR:
 	case WP_MP44:
 	case WP_THOMPSON:

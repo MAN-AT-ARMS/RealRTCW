@@ -1481,7 +1481,6 @@ void SetupWeaponsForSkill_EASY() // Easy
 	// 9mm
 	ammoTable[WP_LUGER].maxammo = 400;
 	ammoTable[WP_MP40].maxammo = 400;
-	ammoTable[WP_MP34].maxammo = 400;
 	ammoTable[WP_STEN].maxammo = 400;
 	ammoTable[WP_SILENCER].maxammo = 400;
 	ammoTable[WP_P38].maxammo = 400;
@@ -1528,7 +1527,6 @@ void SetupWeaponsForSkill_MEDIUM() // Medium
 	// 9mm
 	ammoTable[WP_LUGER].maxammo = 300;
 	ammoTable[WP_MP40].maxammo = 300;
-	ammoTable[WP_MP34].maxammo = 300;
 	ammoTable[WP_STEN].maxammo = 300;
 	ammoTable[WP_SILENCER].maxammo = 300;
 	ammoTable[WP_P38].maxammo = 300;
@@ -1574,7 +1572,6 @@ void SetupWeaponsForSkill_HARD() // Hard
 	// 9mm
 	ammoTable[WP_LUGER].maxammo = 200;
 	ammoTable[WP_MP40].maxammo = 200;
-	ammoTable[WP_MP34].maxammo = 200;
 	ammoTable[WP_STEN].maxammo = 200;
 	ammoTable[WP_SILENCER].maxammo = 200;
 	ammoTable[WP_P38].maxammo = 200;
@@ -1621,7 +1618,6 @@ void SetupWeaponsForSkill_MAX() // Max
 	// 9mm
 	ammoTable[WP_LUGER].maxammo = 150;
 	ammoTable[WP_MP40].maxammo = 150;
-	ammoTable[WP_MP34].maxammo = 150;
 	ammoTable[WP_STEN].maxammo = 150;
 	ammoTable[WP_SILENCER].maxammo = 150;
 	ammoTable[WP_P38].maxammo = 150;
