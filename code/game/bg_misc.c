@@ -112,6 +112,7 @@ ammotable_t ammoTable[] = {
 	{   MAX_AMMO_44AMMO,  1,    30,     2600,   DELAY_LOW,      105,    0,      0,      MOD_MP44                },  //	WP_MP44					// 18
 	{   MAX_AMMO_MAUSER,  1,    100,    2600,   DELAY_LOW,      65,     2500,   200,    MOD_MG42M               },  //	WP_MG42M                // 19
 	{   MAX_AMMO_M97,     1,    6,      2000,   DELAY_LOW,      1250,   0,      0,      MOD_M97                 },  //	WP_M97                  // 20
+	{   MAX_AMMO_9MM,     1,    30,     2600,   DELAY_LOW,      105,    0,      0,      MOD_M3A1                },  //	WP_M3A1					// 21
 
 
 	{   MAX_AMMO_45,    1,      7,      1500,   DELAY_PISTOL,   350,    0,      0,      MOD_COLT                },  //	WP_COLT					// 22
@@ -152,7 +153,6 @@ int weapAlts[] = {
 	WP_NONE,            // 8 WP_VENOM
 	WP_NONE,            // 9 WP_FLAMETHROWER
 	WP_NONE,            // 10 WP_TESLA
-	WP_NONE,            // 11 WP_MP34
 	WP_NONE,            // 12 WP_P38
 	WP_NONE,            // 15 WP_G43
 	WP_NONE,            // 16 WP_M1GARAND
@@ -160,6 +160,7 @@ int weapAlts[] = {
 	WP_NONE,            // 18 WP_MP44
 	WP_NONE,            // 19 WP_MG42M
 	WP_NONE,            // 20 WP_M97
+	WP_NONE,            // 21 WP_M3A1
 	WP_AKIMBO,          // 22 WP_COLT		
 	WP_NONE,            // 23 WP_THOMPSON
 	WP_SNOOPERSCOPE,    // 24 WP_GARAND		
@@ -1632,33 +1633,6 @@ weapon_class_special (.3 .3 1) (-16 -16 -16) (16 16 16) suspended
 
 // RealRTCW weapons
 
-/*QUAKED weapon_mp34 (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
-"stand" values:
-	no value:	laying in a default position on it's side (default)
-	2:			upright, barrel pointing up, slightly angled (rack mount)
--------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
-model="models/weapons2/mp34/mp34_3rd.md3"
-*/
-	{
-		"weapon_mp34",
-		"sound/misc/w_pkup.wav",
-		{   "models/weapons2/mp34/mp34_3rd.md3",
-			"models/weapons2/mp34/v_mp34.md3",
-			"models/weapons2/mp34/pu_mp34.md3",
-			0, 0 },
-
-		"icons/iconw_mp34",    // icon
-		"icons/ammo9",       // ammo icon
-		"MP34",              // pickup
-		30,
-		IT_WEAPON,
-		WP_MP34,
-		WP_LUGER,
-		WP_MP34,
-		"",                  // precache
-		"",                  // sounds
-		{0,0,0,0}
-	},
 
 	/*QUAKED weapon_p38 (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
 "stand" values:
@@ -1853,6 +1827,35 @@ model="models/multiplayer/mg42/mg42_3rd.md3"
 			{ 0,0,0,0 }
 	},
 
+
+
+/*QUAKED weapon_m3a1 (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
+"stand" values:
+	no value:	laying in a default position on it's side (default)
+	2:			upright, barrel pointing up, slightly angled (rack mount)
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/weapons2/m3a1/m3a1.md3"
+*/
+	{
+		"weapon_m3a1",
+		"sound/misc/w_pkup.wav",
+		{   "models/weapons2/m3a1/m3a1.md3",
+			"models/weapons2/m3a1/v_m3a1.md3",
+			"models/weapons2/m3a1/pu_m3a1.md3",
+			0, 0 },
+
+		"icons/iconw_m3a1",    // icon
+		"icons/ammo9",       // ammo icon
+		"M3A1",              // pickup
+		30,
+		IT_WEAPON,
+		WP_M3A1,
+		WP_LUGER,
+		WP_M3A1,
+		"",                  // precache
+		"",                  // sounds
+		{0,0,0,0}
+	},
 
 
 

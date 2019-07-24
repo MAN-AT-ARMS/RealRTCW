@@ -558,6 +558,7 @@ typedef enum {
 	WP_MP44,                // 18
 	WP_MG42M,               // 19
 	WP_M97,                 // 20
+	WP_M3A1,                // 21
 	// end RealRTCW weapons
 	WP_COLT,                // 22	
 	WP_THOMPSON,            // 23	
@@ -1173,6 +1174,7 @@ typedef enum {
 	MOD_MG42M,
 	MOD_M97,
 
+	MOD_M3A1,
 	MOD_SPEARGUN,
 	MOD_SPEARGUN_CO2,
 	MOD_GRENADE_PINEAPPLE,

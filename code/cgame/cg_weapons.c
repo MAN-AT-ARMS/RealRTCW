@@ -58,6 +58,7 @@ int weapBanks[MAX_WEAP_BANKS][MAX_WEAPS_IN_BANK] = {
 	{WP_KNIFE,              0,                      0,            0,               0            },  //	1
 	{WP_LUGER,              WP_COLT,                WP_P38,       0,               0            },  //	2
 	{WP_MAUSER,             WP_GARAND,              0,            0,               0            },  //	4
+	{WP_MP40,               WP_STEN,                WP_THOMPSON,  WP_M3A1,         0            },  //	3
     {WP_G43,                WP_M1GARAND,            0,            0,               0            },  //	5
 	{WP_FG42,               WP_MP44,                WP_BAR,       0,               0            },  //	6
 	{WP_M97,                0,                      0,            0,               0            },  //	7
@@ -1360,6 +1361,15 @@ weaponInfo->handsSkin = trap_R_RegisterSkin(handsskin);
 		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/mp44/mp44_far.wav" );
 		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/mp44/mp44_reload.wav" );
 		weaponInfo->overheatSound = trap_S_RegisterSound( "sound/weapons/mp44/mp44_overheat.wav" );
+		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
+		break;
+
+	case WP_M3A1:
+		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
+		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/m3a1/m3a1_fire.wav" );
+		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/m3a1/m3a1_far.wav" );
+		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/m3a1/m3a1_reload.wav" );
+		weaponInfo->overheatSound = trap_S_RegisterSound( "sound/weapons/m3a1/m3a1_overheat.wav" );
 		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
 		break;
 	
@@ -3291,6 +3301,7 @@ void CG_DrawWeaponSelect( void ) {
 		case WP_M1GARAND:
 		case WP_BAR:
 		case WP_MP44:
+		case WP_M3A1:
 		case WP_MG42M:
 		case WP_M97:
 
@@ -4770,6 +4781,7 @@ void CG_WeaponFireRecoil( int weapon ) {
 	// RealRTCW weapons
 	case WP_BAR:
 	case WP_MP44:
+	case WP_M3A1:
 	case WP_THOMPSON:
 	case WP_STEN:
 		pitchAdd = 1 + rand() % 3;
@@ -5256,6 +5268,7 @@ void CG_MissileHitWall( int weapon, int clientNum, vec3_t origin, vec3_t dir, in
 	case WP_M1GARAND:
 	case WP_BAR:
 	case WP_MP44:
+	case WP_M3A1:
 	case WP_MG42M:
 	case WP_M97:
 	case WP_FG42:
