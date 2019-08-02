@@ -1126,7 +1126,8 @@ qboolean	isPlayer = (self->client && !self->aiCharacter);	// Knightmare added
 //	bolt->clipmask = MASK_SHOT;
 	bolt->clipmask = MASK_MISSILESHOT;
 
-	bolt->s.pos.trType = TR_LINEAR;
+	//bolt->s.pos.trType = TR_LINEAR;
+	bolt->s.pos.trType = TR_GRAVITY; // gothicstein
 	bolt->s.pos.trTime = level.time - MISSILE_PRESTEP_TIME;     // move a bit on the very first frame
 	VectorCopy( start, bolt->s.pos.trBase );
 //	VectorScale( dir, 900, bolt->s.pos.trDelta );	// old speed was 900
