@@ -696,7 +696,7 @@ float G_GetWeaponSpread( int weapon ) {
 			case WP_SILENCER:   return 500; // RealRTCW was 600
 			case WP_COLT:       return 550; // RealRTCW was 700
 			case WP_AKIMBO:     return 600; // RealRTCW was 700
-			case WP_VENOM:      return 1100;
+			case WP_VENOM:      return 900;
 			case WP_MP40:       return 950; // RealRTCW was 1000
 			// RealRTCW weapons
 			case WP_P38:        return 550; // RealRTCW was 750

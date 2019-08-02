@@ -437,11 +437,14 @@ if ( pm->ps->aiChar == AICHAR_ZOMBIE || pm->ps->aiChar == AICHAR_WARZOMBIE ) { /
 #endif
 if ( ! (pm->ps->aiChar))  // RealRTCW weapon weight does not affect AI now
 	{
-		if ( ( pm->ps->weapon == WP_VENOM ) || ( pm->ps->weapon == WP_PANZERFAUST ) || ( pm->ps->weapon == WP_FLAMETHROWER ) || ( pm->ps->weapon == WP_TESLA ) || ( pm->ps->weapon == WP_MG42M ) ) {
+		if ( ( pm->ps->weapon == WP_PANZERFAUST ) || ( pm->ps->weapon == WP_FLAMETHROWER ) || ( pm->ps->weapon == WP_TESLA ) || ( pm->ps->weapon == WP_MG42M ) ) {
 			scale *= 0.75; 
         }
 		if  ( pm->ps->weapon == WP_MG42M ) { //gothicstein
 			scale *= 0.50;
+		}
+		if  ( pm->ps->weapon == WP_VENOM ) { //gothicstein
+			scale *= 0.80;
 		}
 		if ( ( pm->ps->weapon == WP_MP40 ) || ( pm->ps->weapon == WP_THOMPSON ) || ( pm->ps->weapon == WP_STEN ) || ( pm->ps->weapon == WP_FG42 ) || ( pm->ps->weapon == WP_MAUSER ) || ( pm->ps->weapon == WP_MP44 ) || ( pm->ps->weapon == WP_GARAND ) || ( pm->ps->weapon == WP_G43 ) || ( pm->ps->weapon == WP_BAR )  || ( pm->ps->weapon == WP_M1GARAND ) || (pm->ps->weapon == WP_M97) || (pm->ps->weapon == WP_M3A1) || (pm->ps->weapon == WP_SPRINGFIELD)  )  {
 			scale *= 0.90; 
@@ -2622,7 +2625,7 @@ void PM_AdjustAimSpreadScale( void ) {
 		wpnScale = 0.4f;        // doesn't fire as fast, but easier to handle than luger
 		break;
 	case WP_VENOM:
-		wpnScale = 0.9f;        // very heavy
+		wpnScale = 0.7f;        // very heavy
 		break;
 	case WP_SNIPERRIFLE:    // (SA) looong time to recover
 		wpnScale = 10.0f;

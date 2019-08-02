@@ -4828,8 +4828,6 @@ void CG_WeaponFireRecoil( int weapon ) {
 		pitchRecoilAdd = pow( random(),8 ) * ( 10 + VectorLength( cg.snap->ps.velocity ) / 5 );
 		pitchAdd = ( rand() % 5 ) - 2;
 		yawRandom = 2;
-
-
 		pitchRecoilAdd *= 0.5;
 		pitchAdd *= 0.5;
 		yawRandom *= 0.5;
