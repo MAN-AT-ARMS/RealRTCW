@@ -440,6 +440,9 @@ if ( ! (pm->ps->aiChar))  // RealRTCW weapon weight does not affect AI now
 		if ( ( pm->ps->weapon == WP_VENOM ) || ( pm->ps->weapon == WP_PANZERFAUST ) || ( pm->ps->weapon == WP_FLAMETHROWER ) || ( pm->ps->weapon == WP_TESLA ) || ( pm->ps->weapon == WP_MG42M ) ) {
 			scale *= 0.75; 
         }
+		if  ( pm->ps->weapon == WP_MG42M ) { //gothicstein
+			scale *= 0.50;
+		}
 		if ( ( pm->ps->weapon == WP_MP40 ) || ( pm->ps->weapon == WP_THOMPSON ) || ( pm->ps->weapon == WP_STEN ) || ( pm->ps->weapon == WP_FG42 ) || ( pm->ps->weapon == WP_MAUSER ) || ( pm->ps->weapon == WP_MP44 ) || ( pm->ps->weapon == WP_GARAND ) || ( pm->ps->weapon == WP_G43 ) || ( pm->ps->weapon == WP_BAR )  || ( pm->ps->weapon == WP_M1GARAND ) || (pm->ps->weapon == WP_M97) || (pm->ps->weapon == WP_M3A1) || (pm->ps->weapon == WP_SPRINGFIELD)  )  {
 			scale *= 0.90; 
 		}
@@ -547,6 +550,10 @@ static qboolean PM_CheckJump( void ) {
 
 	if ( pm->ps->pm_flags & PMF_RESPAWNED ) {
 		return qfalse;      // don't allow jump until all buttons are up
+	}
+
+    if  ( pm->ps->weapon == WP_MG42M ) { // gothicstein
+		return qfalse;
 	}
 
 	if ( pm->cmd.upmove < 10 ) {
@@ -2669,6 +2676,7 @@ void PM_AdjustAimSpreadScale( void ) {
 		break;
 	case WP_MG42M:
 		wpnScale = 0.6f;        
+		wpnScale = 0.8f;        
 		break;
 	case WP_M97:  
 		wpnScale = 0.6f; // was 0.4f now jaymod values
@@ -3517,6 +3525,7 @@ static void PM_Weapon( void ) {
 	case WP_MG42M:
 	addTime = ammoTable[pm->ps->weapon].nextShotTime;
 	aimSpreadScaleAdd = 20;       
+	aimSpreadScaleAdd = 40;    // gothicstein   
 	break;
 
 	case WP_M97: 

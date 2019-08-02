@@ -537,6 +537,8 @@ float AICast_WeaponRange( cast_state_t *cs, int weaponnum ) {
 
 		// Rafael added these changes as per Mikes request
 	case WP_MAUSER:
+	case WP_SPRINGFIELD:
+	case WP_SPRINGFIELDSCOPE:
 	case WP_GARAND:
 	case WP_SNIPERRIFLE:
 	case WP_SNOOPERSCOPE:
@@ -1572,6 +1574,8 @@ AICast_CanMoveWhileFiringWeapon
 qboolean AICast_CanMoveWhileFiringWeapon( int weaponnum ) {
 	switch ( weaponnum ) {
 	case WP_MAUSER:
+	case WP_SPRINGFIELD:
+	case WP_SPRINGFIELDSCOPE:
 	case WP_GARAND:
 	case WP_SNIPERRIFLE:    //----(SA)	added
 	case WP_SNOOPERSCOPE:   //----(SA)	added
@@ -1865,6 +1869,8 @@ float AICast_GetWeaponSoundRange( int weapon ) {
 
 	case    WP_SNIPERRIFLE:
 	case    WP_MAUSER:
+	case    WP_SPRINGFIELD:
+	case    WP_SPRINGFIELDSCOPE:
 	case    WP_G43:
 	case    WP_M1GARAND:
 		return 2000;
