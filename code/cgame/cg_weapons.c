@@ -57,8 +57,8 @@ int weapBanks[MAX_WEAP_BANKS][MAX_WEAPS_IN_BANK] = {
 	{0,                     0,                      0,            0,               0            },  //	0 (empty)
 	{WP_KNIFE,              0,                      0,            0,               0            },  //	1
 	{WP_LUGER,              WP_COLT,                WP_P38,       0,               0            },  //	2
-	{WP_MAUSER,             WP_GARAND,              0,            0,               0            },  //	4
 	{WP_MP40,               WP_STEN,                WP_THOMPSON,  WP_M3A1,         0            },  //	3
+	{WP_MAUSER,             WP_GARAND,              WP_SPRINGFIELD, 0,             0            },  //	4
     {WP_G43,                WP_M1GARAND,            0,            0,               0            },  //	5
 	{WP_FG42,               WP_MP44,                WP_BAR,       0,               0            },  //	6
 	{WP_M97,                0,                      0,            0,               0            },  //	7
@@ -1289,6 +1289,15 @@ weaponInfo->handsSkin = trap_R_RegisterSkin(handsskin);
 		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
 		break;
 
+	case WP_SPRINGFIELD:
+		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
+		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/springfield/springfield_fire.wav" );
+		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/springfield/springfield_far.wav" );
+		weaponInfo->lastShotSound[0] = trap_S_RegisterSound( "sound/weapons/springfield/springfield_fire_last.wav" );
+		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/springfield/springfield_reload.wav" );
+		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
+		break;
+
 	case WP_GARAND:
 		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
 		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/garand/garand_fire.wav" );
@@ -1830,6 +1839,7 @@ static void CG_CalculateWeaponPosition( vec3_t origin, vec3_t angles ) {
 		case WP_FLAMETHROWER:
 		case WP_TESLA:
 		case WP_MAUSER:
+		case WP_SPRINGFIELD:
 			leanscale = 2.0f;
 			break;
 
@@ -4765,6 +4775,7 @@ void CG_WeaponFireRecoil( int weapon ) {
 	case WP_AKIMBO: 
 	break;
 	case WP_MAUSER:
+	case WP_SPRINGFIELD:
 	case WP_GARAND:
 	case WP_G43:
 	case WP_M1GARAND:
@@ -5258,6 +5269,7 @@ void CG_MissileHitWall( int weapon, int clientNum, vec3_t origin, vec3_t dir, in
 	case WP_AKIMBO: //----(SA)	added
 	case WP_COLT:
 	case WP_MAUSER:
+	case WP_SPRINGFIELD:
 	case WP_GARAND:
 	case WP_SNIPERRIFLE:
 	case WP_SNOOPERSCOPE:

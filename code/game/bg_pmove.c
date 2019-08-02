@@ -2633,6 +2633,9 @@ void PM_AdjustAimSpreadScale( void ) {
 	case WP_MAUSER:
 		wpnScale = 0.5f;
 		break;
+	case WP_SPRINGFIELD:
+		wpnScale = 0.5f;
+		break;
 	case WP_GARAND:
 		wpnScale = 0.5f;
 		break;
@@ -3226,6 +3229,7 @@ static void PM_Weapon( void ) {
 	case WP_SNIPERRIFLE:
 	case WP_SNOOPERSCOPE:
 	case WP_MAUSER:
+	case WP_SPRINGFIELD:
 	case WP_G43:
 	case WP_M1GARAND:
 	case WP_GARAND:
@@ -3381,6 +3385,7 @@ static void PM_Weapon( void ) {
 
 	switch ( pm->ps->weapon ) {
 	case WP_MAUSER:
+	case WP_SPRINGFIELD:
 	case WP_G43:
 	case WP_M1GARAND:
 	case WP_GRENADE_LAUNCHER:
@@ -3467,6 +3472,7 @@ static void PM_Weapon( void ) {
 		break;
 //----(SA)	end
 	case WP_MAUSER:
+	case WP_SPRINGFIELD:
 	case WP_G43:
 	case WP_M1GARAND:
 	case WP_GARAND:

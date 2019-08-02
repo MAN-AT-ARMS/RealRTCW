@@ -597,6 +597,7 @@ int G_GetWeaponDamage( int weapon, qboolean player ) {
 			case WP_MG42M: return sk_plr_dmg_mg42m.integer;
 			case WP_M97: return sk_plr_dmg_m97.integer;
 			case WP_M3A1: return sk_plr_dmg_m3a1.integer;
+			case WP_SPRINGFIELD: return sk_plr_dmg_springfield.integer;	
             // end RealRTCW
 			case WP_MORTAR: return 100;
 			case WP_GAUNTLET: return 1;
@@ -637,6 +638,7 @@ int G_GetWeaponDamage( int weapon, qboolean player ) {
 			case WP_MG42M: return sk_ai_dmg_mg42m.integer;
 			case WP_M97: return sk_ai_dmg_m97.integer;
 			case WP_M3A1: return sk_ai_dmg_m3a1.integer;
+			case WP_SPRINGFIELD: return sk_ai_dmg_springfield.integer;
 			// end RealRTCW			
 			case WP_MORTAR: return 100;
 			case WP_GAUNTLET: return 1;
@@ -705,6 +707,7 @@ float G_GetWeaponSpread( int weapon ) {
 			case WP_MG42M:      return 1700;
 			case WP_M97:        return 4800;
 			case WP_M3A1:       return 900;  
+			case WP_SPRINGFIELD:     return 400;
 
 			case WP_FG42SCOPE:  return 250;
 			case WP_FG42:       return 700; 
@@ -786,6 +789,9 @@ float G_GetWeaponSpread( int weapon ) {
 
 #define M3A1_SPREAD     G_GetWeaponSpread( WP_M3A1 )
 #define M3A1_DAMAGE(e)     G_GetWeaponDamage( WP_M3A1, e ) 
+
+#define SPRINGFIELD_SPREAD   G_GetWeaponSpread( WP_SPRINGFIELD )
+#define SPRINGFIELD_DAMAGE(e)   G_GetWeaponDamage( WP_SPRINGFIELD, e ) // JPW
 
 #define MG42M_SPREAD     G_GetWeaponSpread( WP_MG42M )
 #define MG42M_DAMAGE(e)     G_GetWeaponDamage( WP_MG42M, e ) 
@@ -1916,6 +1922,9 @@ void FireWeapon( gentity_t *ent ) {
 		break;
 	case WP_M3A1: 
 		Bullet_Fire( ent, M3A1_SPREAD * aimSpreadScale, M3A1_DAMAGE(isPlayer) );
+		break;
+	case WP_SPRINGFIELD: 
+		Bullet_Fire( ent, SPRINGFIELD_SPREAD * aimSpreadScale, SPRINGFIELD_DAMAGE(isPlayer) );
 		break;
 	case WP_MG42M: 
 		Bullet_Fire( ent, MG42M_SPREAD * 0.6f * aimSpreadScale, MG42M_DAMAGE(isPlayer) );

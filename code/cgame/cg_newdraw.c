@@ -243,6 +243,7 @@ static int weapIconDrawSize( int weap ) {
 	case WP_MP40:
 	case WP_STEN:
 	case WP_MAUSER:
+	case WP_SPRINGFIELD:
 	case WP_GARAND:
 	case WP_VENOM:
 	case WP_TESLA:
