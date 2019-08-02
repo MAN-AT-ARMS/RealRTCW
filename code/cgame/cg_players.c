@@ -4473,8 +4473,11 @@ void CG_AddRefEntityWithPowerups( refEntity_t *ent, int powerups, int team, enti
 
 	if ( onFire ) {
 		if ( alpha < 0.0 ) {
-			alpha = 0.0;
+			alpha = 400.0;
 		}
+		ent->shaderRGBA[0] = ( unsigned char )( 255.0 * alpha ); // gothicstein red hits from tesla
+		ent->shaderRGBA[1] = ( unsigned char )( 0.0 * alpha );
+		ent->shaderRGBA[2] = ( unsigned char )( 0.0 * alpha );
 		ent->shaderRGBA[3] = ( unsigned char )( 255.0 * alpha );
 		VectorCopy( fireRiseDir, ent->fireRiseDir );
 		if ( VectorCompare( ent->fireRiseDir, vec3_origin ) ) {
