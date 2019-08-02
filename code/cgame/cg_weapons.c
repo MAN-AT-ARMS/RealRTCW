@@ -4758,7 +4758,7 @@ CG_WeaponFireRecoil
 ==============
 */
 void CG_WeaponFireRecoil( int weapon ) {
-//	const	vec3_t maxKickAngles = {25, 30, 25};
+	//const	vec3_t maxKickAngles = {25, 30, 25};
 	float pitchRecoilAdd, pitchAdd;
 	float yawRandom;
 	vec3_t recoil;
@@ -4805,18 +4805,15 @@ void CG_WeaponFireRecoil( int weapon ) {
 	case WP_M97:
 		pitchRecoilAdd = 1;
 		pitchAdd = 12 + rand() % 3;
-		yawRandom = 2;
+		yawRandom = 3;
 		pitchAdd *= 0.5;
 		yawRandom *= 0.5;
 		break;
 	
 	case WP_MG42M:
-		pitchRecoilAdd = pow(random(), 8) * (10 + VectorLength(cg.snap->ps.velocity) / 5);
-		pitchAdd = (rand() % 5) - 2;
 		yawRandom = 2;
-		pitchRecoilAdd *= 0.5;
-		pitchAdd *= 0.5;
-		yawRandom *= 0.5;
+		pitchRecoilAdd = 3;
+		pitchAdd = 3;
 		break;
 
 	case WP_PANZERFAUST:

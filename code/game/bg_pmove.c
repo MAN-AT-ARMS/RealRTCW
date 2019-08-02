@@ -2677,8 +2677,7 @@ void PM_AdjustAimSpreadScale( void ) {
 	case WP_MP44:
 		wpnScale = 0.6f;
 		break;
-	case WP_MG42M:
-		wpnScale = 0.6f;        
+	case WP_MG42M:       
 		wpnScale = 0.8f;        
 		break;
 	case WP_M97:  
@@ -3529,8 +3528,7 @@ static void PM_Weapon( void ) {
 		break;
 
 	case WP_MG42M:
-	addTime = ammoTable[pm->ps->weapon].nextShotTime;
-	aimSpreadScaleAdd = 20;       
+	addTime = ammoTable[pm->ps->weapon].nextShotTime;     
 	aimSpreadScaleAdd = 40;    // gothicstein   
 	break;
 

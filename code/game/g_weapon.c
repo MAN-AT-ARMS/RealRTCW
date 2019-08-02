@@ -704,7 +704,7 @@ float G_GetWeaponSpread( int weapon ) {
 			case WP_M1GARAND:   return 400; // was 450
 			case WP_BAR:        return 800;
 		    case WP_MP44:       return 900;  
-			case WP_MG42M:      return 1700;
+			case WP_MG42M:      return 2000;
 			case WP_M97:        return 4800;
 			case WP_M3A1:       return 900;  
 			case WP_SPRINGFIELD:     return 400;
@@ -1928,6 +1928,17 @@ void FireWeapon( gentity_t *ent ) {
 		break;
 	case WP_MG42M: 
 		Bullet_Fire( ent, MG42M_SPREAD * 0.6f * aimSpreadScale, MG42M_DAMAGE(isPlayer) );
+		if (!ent->aiCharacter) {
+			vec3_t vec_forward, vec_vangle;
+			VectorCopy(ent->client->ps.viewangles, vec_vangle);
+			vec_vangle[PITCH] = 0;	// nullify pitch so you can't lightning jump
+			AngleVectors(vec_vangle, vec_forward, NULL, NULL);
+			 // make it less if in the air
+			if (ent->s.groundEntityNum == ENTITYNUM_NONE)
+				VectorMA(ent->client->ps.velocity, -8, vec_forward, ent->client->ps.velocity);
+			else
+				VectorMA(ent->client->ps.velocity, -24, vec_forward, ent->client->ps.velocity);
+		}
 		break;
 	
 		case WP_M97:
