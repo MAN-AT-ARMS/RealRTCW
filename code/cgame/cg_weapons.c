@@ -1498,7 +1498,7 @@ weaponInfo->handsSkin = trap_R_RegisterSkin(handsskin);
 		break;
 
 	case WP_TESLA:
-		MAKERGB( weaponInfo->flashDlightColor, 0.2, 0.6, 1 );
+		MAKERGB( weaponInfo->flashDlightColor, 255, 0, 0 );
 		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/tesla/teslaf1.wav" );
 		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/tesla/tesla_reload.wav" );
 		weaponInfo->overheatSound = trap_S_RegisterSound( "sound/weapons/tesla/tesla_overheat.wav" );
