@@ -1493,7 +1493,7 @@ weaponInfo->handsSkin = trap_R_RegisterSkin(handsskin);
 		break;
 
 	case WP_FLAMETHROWER:
-		//MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.7, 0.4 );
+		MAKERGB( weaponInfo->flashDlightColor, 255.0, 0.0, 0.0 ); // gothicstein
 		weaponInfo->overheatSound = trap_S_RegisterSound( "sound/weapons/flamethrower/flamethrower_overheat.wav" ); // gothicstein
 		break;
 
