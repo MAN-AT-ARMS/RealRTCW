@@ -113,11 +113,12 @@ void Weapon_Knife( gentity_t *ent ) {
 		return;
 	}
 
-	// RF, no knife damage for big guys
+	// RF, no knife damage for big guys + warrior(gothicstein)
 	switch ( traceEnt->aiCharacter ) {
 	case AICHAR_PROTOSOLDIER:
 	case AICHAR_SUPERSOLDIER:
 	case AICHAR_HEINRICH:
+	case AICHAR_WARZOMBIE:
 		return;
 	}
 
