@@ -178,6 +178,7 @@ vmCvar_t cg_zoomStepSnooper;
 vmCvar_t cg_zoomStepFG;         //----(SA)	added
 vmCvar_t cg_zoomDefaultBinoc;
 vmCvar_t cg_zoomDefaultSniper;
+vmCvar_t cg_zoomDefaultSpringfieldscope;
 vmCvar_t cg_zoomDefaultSnooper;
 vmCvar_t cg_zoomDefaultFG;      //----(SA)	added
 vmCvar_t cg_reticles;
@@ -296,6 +297,7 @@ cvarTable_t cvarTable[] = {
 	{ &cg_zoomFov, "cg_zoomfov", "22.5", CVAR_ARCHIVE },
 	{ &cg_zoomDefaultBinoc, "cg_zoomDefaultBinoc", "22.5", CVAR_ARCHIVE },
 	{ &cg_zoomDefaultSniper, "cg_zoomDefaultSniper", "15", CVAR_ARCHIVE },
+	{ &cg_zoomDefaultSpringfieldscope, "cg_zoomDefaultSpringfieldscope", "15", CVAR_ARCHIVE },
 	{ &cg_zoomDefaultSnooper, "cg_zoomDefaultSnooper", "40", CVAR_ARCHIVE },
 	{ &cg_zoomDefaultFG, "cg_zoomDefaultFG", "55", CVAR_ARCHIVE },                //----(SA)	added
 	{ &cg_zoomStepBinoc, "cg_zoomStepBinoc", "3", CVAR_ARCHIVE },

@@ -94,7 +94,7 @@ ammotable_t ammoTable[] = {
 	//	AMMO			AMT.	CLIP	TIME	DELAY			SHOT
 	{   0,              0,      0,      0,      50,             0,      0,      0,      0                       },  //	WP_NONE					// 0
 
-	{   999,            0,      999,    0,      50,             300,    0,      0,      MOD_KNIFE               },  //	WP_KNIFE				// 1
+	{   999,            0,      999,    0,      50,             250,    0,      0,      MOD_KNIFE               },  //	WP_KNIFE				// 1
 
 	{   MAX_AMMO_9MM,   1,      8,      1500,   DELAY_PISTOL,   350,    0,      0,      MOD_LUGER               },  //	WP_LUGER				// 2	
 	{   MAX_AMMO_9MM,   1,      32,     2600,   DELAY_LOW,      110,    0,      0,      MOD_MP40                },  //	WP_MP40					// 3
@@ -114,31 +114,32 @@ ammotable_t ammoTable[] = {
 	{   MAX_AMMO_M97,     1,    6,      2000,   DELAY_LOW,      1250,   0,      0,      MOD_M97                 },  //	WP_M97                  // 20
 	{   MAX_AMMO_9MM,     1,    30,     2600,   DELAY_LOW,      105,    0,      0,      MOD_M3A1                },  //	WP_M3A1					// 21
 	{   MAX_AMMO_BARAMMO, 1,    5,      2600,   DELAY_HIGH,     1400,    0,      0,     MOD_SPRINGFIELD         },  //	WP_SPRINGFIELD		    // 22
+	{   MAX_AMMO_BARAMMO, 1,    5,      2600,   DELAY_HIGH,     1400,    0,      0,     MOD_SPRINGFIELDSCOPE    },  //	WP_SPRINGFIELDSCOPE		// 23
 
 
 
-	{   MAX_AMMO_45,    1,      7,      1500,   DELAY_PISTOL,   350,    0,      0,      MOD_COLT                },  //	WP_COLT					// 23
-	{   MAX_AMMO_45,    1,      30,     2400,   DELAY_LOW,      90,     0,      0,      MOD_THOMPSON            },  //	WP_THOMPSON				// 24
-	{   MAX_AMMO_GARAND,1,      5,      2500,   DELAY_HIGH,     1200,   0,      0,      MOD_GARAND              },  //	WP_GARAND				// 25	
-	{   5,              1,      5,      1000,   DELAY_THROW,    1600,   0,      0,      MOD_GRENADE_PINEAPPLE   },  //	WP_GRENADE_PINEAPPLE	// 26
+	{   MAX_AMMO_45,    1,      7,      1500,   DELAY_PISTOL,   350,    0,      0,      MOD_COLT                },  //	WP_COLT					// 24
+	{   MAX_AMMO_45,    1,      30,     2400,   DELAY_LOW,      90,     0,      0,      MOD_THOMPSON            },  //	WP_THOMPSON				// 25
+	{   MAX_AMMO_GARAND,1,      5,      2500,   DELAY_HIGH,     1200,   0,      0,      MOD_GARAND              },  //	WP_GARAND				// 26	
+	{   5,              1,      5,      1000,   DELAY_THROW,    1600,   0,      0,      MOD_GRENADE_PINEAPPLE   },  //	WP_GRENADE_PINEAPPLE	// 27
 
-	{   MAX_AMMO_MAUSER,1,      5,      3000,   0,              1400,   0,      0,      MOD_SNIPERRIFLE         },  //	WP_SNIPER_GER			// 27
-	{   MAX_AMMO_GARAND,1,      5,      3000,   0,              1200,   0,      0,      MOD_SNOOPERSCOPE        },  //	WP_SNIPER_AM			// 28
+	{   MAX_AMMO_MAUSER,1,      5,      3000,   0,              1400,   0,      0,      MOD_SNIPERRIFLE         },  //	WP_SNIPER_GER			// 28
+	{   MAX_AMMO_GARAND,1,      5,      3000,   0,              1200,   0,      0,      MOD_SNOOPERSCOPE        },  //	WP_SNIPER_AM			// 29
 
-	{   MAX_AMMO_FG42,  1,      20,     2000,   DELAY_LOW,      170,    0,      0,      MOD_FG42SCOPE           },  //	WP_FG42SCOPE			// 29
-	{   MAX_AMMO_9MM,   1,      32,     3100,   DELAY_LOW,      115,    900,    500,    MOD_STEN                },  //	WP_STEN					// 30
-	{   MAX_AMMO_9MM,   1,      8,      1500,   DELAY_PISTOL,   400,    0,      0,      MOD_SILENCER            },  //	WP_SILENCER				// 31
-	{   MAX_AMMO_45,    1,      7,      2700,   DELAY_PISTOL,   200,    0,      0,      MOD_AKIMBO              },  //	WP_AKIMBO				// 32
+	{   MAX_AMMO_FG42,  1,      20,     2000,   DELAY_LOW,      170,    0,      0,      MOD_FG42SCOPE           },  //	WP_FG42SCOPE			// 30
+	{   MAX_AMMO_9MM,   1,      32,     3100,   DELAY_LOW,      115,    900,    500,    MOD_STEN                },  //	WP_STEN					// 31
+	{   MAX_AMMO_9MM,   1,      8,      1500,   DELAY_PISTOL,   400,    0,      0,      MOD_SILENCER            },  //	WP_SILENCER				// 32
+	{   MAX_AMMO_45,    1,      7,      2700,   DELAY_PISTOL,   200,    0,      0,      MOD_AKIMBO              },  //	WP_AKIMBO				// 33
 
-	{   999,            0,      999,    0,      50,             0,      0,      0,      0                       },  //	WP_CLASS_SPECIAL		// 33	
-	{   3,              1,      3,      1000,   DELAY_THROW,    1600,   0,      0,      MOD_DYNAMITE            },  //	WP_DYNAMITE				// 34
+	{   999,            0,      999,    0,      50,             0,      0,      0,      0                       },  //	WP_CLASS_SPECIAL		// 34	
+	{   3,              1,      3,      1000,   DELAY_THROW,    1600,   0,      0,      MOD_DYNAMITE            },  //	WP_DYNAMITE				// 35
 
 // stubs for some "not-real" weapons (so they always return "yes, you have enough ammo for that gauntlet", etc.)
-//	{	5,				1,		5,		1000,	DELAY_SHOULDER,	1200,	0,		0,		0 /*mod_prox*/			},	//	WP_PROX					// 35
-	{   999,            0,      999,    0,      50,             0,      0,      0,      0                       },  //	WP_MONSTER_ATTACK1		// 36
-	{   999,            0,      999,    0,      50,             0,      0,      0,      0                       },  //	WP_MONSTER_ATTACK2		// 37
-	{   999,            0,      999,    0,      50,             0,      0,      0,      0                       },  //	WP_MONSTER_ATTACK3		// 38
-	{   999,            0,      999,    0,      50,             0,      0,      0,      0                       }   //	WP_GAUNTLET				// 39
+//	{	5,				1,		5,		1000,	DELAY_SHOULDER,	1200,	0,		0,		0 /*mod_prox*/			},	//	WP_PROX					// 36
+	{   999,            0,      999,    0,      50,             0,      0,      0,      0                       },  //	WP_MONSTER_ATTACK1		// 37
+	{   999,            0,      999,    0,      50,             0,      0,      0,      0                       },  //	WP_MONSTER_ATTACK2		// 38
+	{   999,            0,      999,    0,      50,             0,      0,      0,      0                       },  //	WP_MONSTER_ATTACK3		// 39
+	{   999,            0,      999,    0,      50,             0,      0,      0,      0                       }   //	WP_GAUNTLET				// 40
 };
 
 
@@ -163,19 +164,20 @@ int weapAlts[] = {
 	WP_NONE,            // 19 WP_MG42M
 	WP_NONE,            // 20 WP_M97
 	WP_NONE,            // 21 WP_M3A1
-	WP_NONE,            // 22 WP_SPRINGFIELD
-	WP_AKIMBO,          // 22 WP_COLT		
-	WP_NONE,            // 23 WP_THOMPSON
-	WP_SNOOPERSCOPE,    // 24 WP_GARAND		
-	WP_NONE,            // 25 WP_GRENADE_PINEAPPLE
-	WP_MAUSER,          // 26 WP_SNIPERRIFLE
-	WP_GARAND,          // 27 WP_SNOOPERSCOPE
-	WP_FG42,            // 28 WP_FG42SCOPE
-	WP_NONE,            // 29 WP_STEN
-	WP_LUGER,           // 30 WP_SILENCER	
-	WP_COLT,            // 31 WP_AKIMBO		
-	WP_NONE,            // 32 WP_CLASS_SPECIAL
-	WP_NONE             // 33 WP_DYNAMITE
+	WP_SPRINGFIELDSCOPE, // 22 WP_SPRINGFIELD
+	WP_SPRINGFIELD,      // 23 WP_SPRINGFIELDSCOPE
+	WP_AKIMBO,          // 24 WP_COLT		
+	WP_NONE,            // 25 WP_THOMPSON
+	WP_SNOOPERSCOPE,    // 26 WP_GARAND		
+	WP_NONE,            // 27 WP_GRENADE_PINEAPPLE
+	WP_MAUSER,          // 28 WP_SNIPERRIFLE
+	WP_GARAND,          // 29 WP_SNOOPERSCOPE
+	WP_FG42,            // 30 WP_FG42SCOPE
+	WP_NONE,            // 31 WP_STEN
+	WP_LUGER,           // 32 WP_SILENCER	
+	WP_COLT,            // 33 WP_AKIMBO		
+	WP_NONE,            // 34 WP_CLASS_SPECIAL
+	WP_NONE             // 35 WP_DYNAMITE
 };
 
 
@@ -1879,10 +1881,36 @@ model="models/weapons2/springfield/springfield.md3"
 		50,
 		IT_WEAPON,
 		WP_SPRINGFIELD,
-		WP_SPRINGFIELD,
+		WP_BAR,
 		WP_SPRINGFIELD,
 		"",                      // precache
 		"",                      // sounds
+		{0,0,0,0}
+	},
+
+	
+/*QUAKED weapon_springfieldscope (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/weapons2/springfield/pu_springfield_scope.md3"
+*/
+	{
+		"weapon_springfieldscope",
+		"sound/misc/w_pkup.wav",
+		{   "models/weapons2/springfield/springfield.md3",
+			"models/weapons2/springfield/v_springfield.md3",
+			"models/weapons2/springfield/pu_springfield_scope.md3",
+			0, 0 },
+
+		"icons/iconw_springfield",  // icon
+		"icons/ammo3",              // ammo icon
+		"Springfield Scope",              // pickup
+		50,
+		IT_WEAPON,
+		WP_SPRINGFIELDSCOPE,
+		WP_BAR,
+		WP_SPRINGFIELD,
+		"",                          // precache
+		"",                          // sounds
 		{0,0,0,0}
 	},
 

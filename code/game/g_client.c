@@ -1014,6 +1014,22 @@ void SetWolfSpawnWeapons( gclient_t *client ) {
 			client->ps.ammo[BG_FindAmmoForWeapon( WP_FLAMETHROWER )] = 300;
 			client->ps.weapon = WP_FLAMETHROWER;
 			break;
+		
+		case 11:     
+			if ( pc != PC_SOLDIER ) {
+				return;
+			}
+
+			COM_BitSet( client->ps.weapons, WP_SPRINGFIELDSCOPE );
+			client->ps.ammoclip[BG_FindClipForWeapon( WP_SPRINGFIELDSCOPE )] = 5;
+			client->ps.ammo[BG_FindAmmoForWeapon( WP_SPRINGFIELDSCOPE )] = 5;
+			client->ps.weapon = WP_SPRINGFIELDSCOPE;
+
+			COM_BitSet( client->ps.weapons, WP_SPRINGFIELD );
+			client->ps.ammoclip[BG_FindClipForWeapon( WP_SPRINGFIELD )] = 5;
+			client->ps.ammo[BG_FindAmmoForWeapon( WP_SPRINGFIELD )] = 5;
+			client->ps.weapon = WP_SPRINGFIELD;
+			break;
 
 		default:    // give MP40 if given invalid weapon number
 			if ( client->sess.sessionTeam == TEAM_RED ) { // JPW NERVE
@@ -1500,6 +1516,7 @@ void SetupWeaponsForSkill_EASY() // Easy
 	ammoTable[WP_BAR].maxammo = 300;
 	ammoTable[WP_M1GARAND].maxammo = 300;
 	ammoTable[WP_SPRINGFIELD].maxammo = 300;
+	ammoTable[WP_SPRINGFIELDSCOPE].maxammo = 300;
 	// mp44
 	ammoTable[WP_MP44].maxammo = 200;
 	// m97
@@ -1548,6 +1565,7 @@ void SetupWeaponsForSkill_MEDIUM() // Medium
 	ammoTable[WP_BAR].maxammo = 200;
 	ammoTable[WP_M1GARAND].maxammo = 200;
 	ammoTable[WP_SPRINGFIELD].maxammo = 200;
+	ammoTable[WP_SPRINGFIELDSCOPE].maxammo = 200;
 	// mp44
 	ammoTable[WP_MP44].maxammo = 180;
 	// m97
@@ -1595,6 +1613,7 @@ void SetupWeaponsForSkill_HARD() // Hard
 	ammoTable[WP_BAR].maxammo = 180;
 	ammoTable[WP_M1GARAND].maxammo = 180;
 	ammoTable[WP_SPRINGFIELD].maxammo = 180;
+	ammoTable[WP_SPRINGFIELDSCOPE].maxammo = 180;
 	// mp44
 	ammoTable[WP_MP44].maxammo = 150;
 	// m97
@@ -1643,6 +1662,7 @@ void SetupWeaponsForSkill_MAX() // Max
 	ammoTable[WP_BAR].maxammo = 150;
 	ammoTable[WP_M1GARAND].maxammo = 150;
 	ammoTable[WP_SPRINGFIELD].maxammo = 150;
+	ammoTable[WP_SPRINGFIELDSCOPE].maxammo = 150;
 	// mp44
 	ammoTable[WP_MP44].maxammo = 120;
 	// m97

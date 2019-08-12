@@ -379,6 +379,7 @@ typedef enum {
 	ZOOM_SNOOPER,
 	ZOOM_FG42SCOPE,
 	ZOOM_MG42,
+	ZOOM_SPRINGFIELDSCOPE,
 	ZOOM_MAX_ZOOMS
 } EZoom_t;
 
@@ -1698,6 +1699,7 @@ extern vmCvar_t cg_drawStatusHead;
 extern vmCvar_t cg_zoomFov;
 extern vmCvar_t cg_zoomDefaultBinoc;
 extern vmCvar_t cg_zoomDefaultSniper;
+extern vmCvar_t cg_zoomDefaultSpringfieldscope;
 extern vmCvar_t cg_zoomDefaultFG;
 extern vmCvar_t cg_zoomDefaultSnooper;
 extern vmCvar_t cg_zoomStepBinoc;

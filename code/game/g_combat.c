@@ -643,7 +643,9 @@ qboolean IsHeadShotWeapon( int mod, gentity_t *targ, gentity_t *attacker ) {
 		// ai's are always allowed headshots from these weapons
 		if ( mod == MOD_SNIPERRIFLE ||
 			 mod == MOD_SNOOPERSCOPE ||
-			 mod == MOD_MAUSER ) {
+			 mod == MOD_MAUSER ||
+			 mod == MOD_SPRINGFIELDSCOPE ||
+			 mod == MOD_SPRINGFIELD ) {
 			return qtrue;
 		}
 		if ( g_gameskill.integer != GSKILL_MAX GSKILL ) { 
@@ -683,6 +685,7 @@ qboolean IsHeadShotWeapon( int mod, gentity_t *targ, gentity_t *attacker ) {
 	case MOD_FG42:
 	case MOD_MAUSER:
 	case MOD_SPRINGFIELD:
+	case MOD_SPRINGFIELDSCOPE:
 	case MOD_GARAND:
 	case MOD_SILENCER:
 	case MOD_FG42SCOPE:

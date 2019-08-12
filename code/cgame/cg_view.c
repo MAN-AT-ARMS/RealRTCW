@@ -696,7 +696,8 @@ float zoomTable[ZOOM_MAX_ZOOMS][2] = {
 	{20, 4},    //	sniper
 	{60, 20},   //	snooper
 	{35, 35},   //	fg42 //RealRTCW was 55 55
-	{55, 55}    //	mg42
+	{55, 55},    //	mg42
+	{20, 4}    //	springfield
 };
 
 void CG_AdjustZoomVal( float val, int type ) {
@@ -718,7 +719,9 @@ void CG_ZoomIn_f( void ) {
 		CG_AdjustZoomVal( -( cg_zoomStepSnooper.value ), ZOOM_FG42SCOPE );
 	} else if ( cg.zoomedBinoc )      {
 		CG_AdjustZoomVal( -( cg_zoomStepBinoc.value ), ZOOM_BINOC );
-	} 
+	} else if ( cg_entities[cg.snap->ps.clientNum].currentState.weapon == WP_SPRINGFIELDSCOPE )      {
+		CG_AdjustZoomVal( -( cg_zoomStepSnooper.value ), ZOOM_SPRINGFIELDSCOPE );
+	}
 }
 
 void CG_ZoomOut_f( void ) {
@@ -730,7 +733,9 @@ void CG_ZoomOut_f( void ) {
 		CG_AdjustZoomVal( cg_zoomStepSnooper.value, ZOOM_FG42SCOPE );
 	} else if ( cg.zoomedBinoc )      {
 		CG_AdjustZoomVal( cg_zoomStepBinoc.value, ZOOM_BINOC );
-	} 
+	} else if ( cg_entities[cg.snap->ps.clientNum].currentState.weapon == WP_SPRINGFIELDSCOPE )      {
+		CG_AdjustZoomVal( cg_zoomStepSnooper.value, ZOOM_SPRINGFIELDSCOPE );
+}
 }
 
 
@@ -761,6 +766,8 @@ void CG_Zoom( void ) {
 			cg.zoomval = cg_zoomDefaultSniper.value;
 		} else if ( cg.predictedPlayerState.weapon == WP_FG42SCOPE ) {
 			cg.zoomval = cg_zoomDefaultFG.value;
+		} else if ( cg.predictedPlayerState.weapon == WP_SPRINGFIELDSCOPE ) {
+			cg.zoomval = cg_zoomDefaultSpringfieldscope.value;
 		} else {
 			cg.zoomval = 0;
 		}
@@ -1499,7 +1506,7 @@ void CG_DrawActiveFrame( int serverTime, stereoFrame_t stereoView, qboolean demo
 		return;
 	}
 
-	if ( cg.weaponSelect == WP_FG42SCOPE || cg.weaponSelect == WP_SNOOPERSCOPE || cg.weaponSelect == WP_SNIPERRIFLE ) {
+	if ( cg.weaponSelect == WP_FG42SCOPE || cg.weaponSelect == WP_SNOOPERSCOPE || cg.weaponSelect == WP_SNIPERRIFLE || cg.weaponSelect == WP_SPRINGFIELDSCOPE ) {
 		float spd;
 		spd = VectorLength( cg.snap->ps.velocity );
 		if ( spd > 180.0f ) {
@@ -1512,6 +1519,9 @@ void CG_DrawActiveFrame( int serverTime, stereoFrame_t stereoView, qboolean demo
 				break;
 			case WP_SNIPERRIFLE:
 				CG_FinishWeaponChange( cg.weaponSelect, WP_MAUSER );
+				break;
+			case WP_SPRINGFIELDSCOPE:
+				CG_FinishWeaponChange( cg.weaponSelect, WP_SPRINGFIELD );
 				break;
 			}
 		}

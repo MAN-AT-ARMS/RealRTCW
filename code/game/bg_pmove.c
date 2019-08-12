@@ -2223,6 +2223,7 @@ static void PM_FinishWeaponChange( void ) {
 	case WP_SNOOPERSCOPE:
 	case WP_SNIPERRIFLE:
 	case WP_FG42SCOPE:
+	case WP_SPRINGFIELDSCOPE:
 		pm->ps->aimSpreadScale = 255;               // initially at lowest accuracy
 		pm->ps->aimSpreadScaleFloat = 255.0f;       // initially at lowest accuracy
 
@@ -2373,6 +2374,7 @@ void PM_CheckForReload( int weapon ) {
 		switch ( weapon ) {
 		case WP_SNOOPERSCOPE:
 		case WP_SNIPERRIFLE:
+		case WP_SPRINGFIELDSCOPE:
 		case WP_FG42SCOPE:
 			if ( reloadRequested ) {
 				doReload = qtrue;
@@ -2639,6 +2641,9 @@ void PM_AdjustAimSpreadScale( void ) {
 	case WP_SPRINGFIELD:
 		wpnScale = 0.5f;
 		break;
+	case WP_SPRINGFIELDSCOPE:    // (SA) looong time to recover
+		wpnScale = 10.0f;
+		break;
 	case WP_GARAND:
 		wpnScale = 0.5f;
 		break;
@@ -2709,7 +2714,7 @@ void PM_AdjustAimSpreadScale( void ) {
 		case WP_SNIPERRIFLE:
 		case WP_SNOOPERSCOPE:
 		case WP_FG42SCOPE:
-		//case WP_M1GARAND: //haha no plz
+		case WP_SPRINGFIELDSCOPE: //haha no plz
 			for ( i = 0; i < 2; i++ )
 				viewchange += fabs( pm->ps->velocity[i] );
 			break;
@@ -3232,6 +3237,7 @@ static void PM_Weapon( void ) {
 	case WP_SNOOPERSCOPE:
 	case WP_MAUSER:
 	case WP_SPRINGFIELD:
+	case WP_SPRINGFIELDSCOPE:
 	case WP_G43:
 	case WP_M1GARAND:
 	case WP_GARAND:
@@ -3319,6 +3325,7 @@ static void PM_Weapon( void ) {
 			// some weapons not allowed to reload.  must switch back to primary first
 			case WP_SNOOPERSCOPE:
 			case WP_SNIPERRIFLE:
+			case WP_SPRINGFIELDSCOPE:
 			case WP_FG42SCOPE:
 				reloadingW = qfalse;
 				break;
@@ -3482,6 +3489,7 @@ static void PM_Weapon( void ) {
 		aimSpreadScaleAdd = 50;
 		break;
 	case WP_SNIPERRIFLE:
+	case WP_SPRINGFIELDSCOPE:
 		// (SA) not so much added per shot.  these weapons mostly uses player movement to get out of whack
 		addTime = ammoTable[pm->ps->weapon].nextShotTime;
 // JPW NERVE crippling the rifle a bit in multiplayer; it's way too strong so make it go completely out every time you fire
@@ -4178,7 +4186,7 @@ void PmoveSingle( pmove_t *pmove ) {
 
 	if ( pm->cmd.wbuttons & WBUTTON_ZOOM ) {
 		if ( pm->ps->stats[STAT_KEYS] & ( 1 << INV_BINOCS ) ) {        // (SA) binoculars are an inventory item (inventory==keys)
-			if ( pm->ps->weapon != WP_SNIPERRIFLE && pm->ps->weapon != WP_SNOOPERSCOPE && pm->ps->weapon != WP_FG42SCOPE ) {   // don't allow binocs if using scope
+			if ( pm->ps->weapon != WP_SNIPERRIFLE && pm->ps->weapon != WP_SNOOPERSCOPE && pm->ps->weapon != WP_FG42SCOPE && pm->ps->weapon != WP_SPRINGFIELDSCOPE ) {   // don't allow binocs if using scope
 				if ( !( pm->ps->eFlags & EF_MG42_ACTIVE ) ) {    // or if mounted on a weapon
 					pm->ps->eFlags |= EF_ZOOMING;
 				}

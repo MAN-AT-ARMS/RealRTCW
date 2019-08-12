@@ -1526,6 +1526,7 @@ void Cmd_Activate_f( gentity_t *ent ) {
 					// no mounting while using a scoped weap
 					switch ( cl->ps.weapon ) {
 					case WP_SNIPERRIFLE:
+					case WP_SPRINGFIELDSCOPE:
 					case WP_SNOOPERSCOPE:
 					case WP_FG42SCOPE:
 						return;

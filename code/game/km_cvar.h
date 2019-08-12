@@ -36,6 +36,7 @@ extern vmCvar_t		sk_plr_dmg_m97;
 extern vmCvar_t		sk_plr_dmg_mg42m;
 extern vmCvar_t		sk_plr_dmg_m3a1;
 extern vmCvar_t		sk_plr_dmg_springfield;
+extern vmCvar_t		sk_plr_dmg_springfieldscope;
 
 
 extern vmCvar_t		sk_ai_dmg_knife;
@@ -70,3 +71,4 @@ extern vmCvar_t		sk_ai_dmg_m97;
 extern vmCvar_t		sk_ai_dmg_mg42m;
 extern vmCvar_t		sk_ai_dmg_m3a1;
 extern vmCvar_t		sk_ai_dmg_springfield;
+extern vmCvar_t		sk_ai_dmg_springfieldscope;

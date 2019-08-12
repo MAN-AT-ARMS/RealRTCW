@@ -181,6 +181,7 @@ vmCvar_t		sk_plr_dmg_m97;
 vmCvar_t		sk_plr_dmg_mg42m;
 vmCvar_t		sk_plr_dmg_m3a1;
 vmCvar_t		sk_plr_dmg_springfield;
+vmCvar_t		sk_plr_dmg_springfieldscope;
 
 vmCvar_t		sk_ai_dmg_knife;
 vmCvar_t		sk_ai_dmg_luger;
@@ -217,6 +218,7 @@ vmCvar_t		sk_ai_dmg_m97;
 vmCvar_t		sk_ai_dmg_mg42m;
 vmCvar_t		sk_ai_dmg_m3a1;
 vmCvar_t		sk_ai_dmg_springfield;
+vmCvar_t		sk_ai_dmg_springfieldscope;
 
 
 cvarTable_t gameCvarTable[] = {
@@ -271,6 +273,7 @@ cvarTable_t gameCvarTable[] = {
 	{ &sk_plr_dmg_m97, "sk_plr_dmg_m97", "10", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_plr_dmg_m3a1, "sk_plr_dmg_m3a1", "5", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_plr_dmg_springfield, "sk_plr_dmg_springfield", "35", CVAR_CHEAT, 0, qfalse  }, 
+	{ &sk_plr_dmg_springfieldscope, "sk_plr_dmg_springfieldscope", "35", CVAR_CHEAT, 0, qfalse  },
 	
 	//AI	
 	{ &sk_ai_dmg_knife, "sk_ai_dmg_knife", "10", CVAR_CHEAT, 0, qfalse  },
@@ -305,6 +308,7 @@ cvarTable_t gameCvarTable[] = {
 	{ &sk_ai_dmg_m97, "sk_ai_dmg_m97", "6", CVAR_CHEAT, 0, qfalse  }, 
 	{ &sk_ai_dmg_m3a1, "sk_ai_dmg_m3a1", "5", CVAR_CHEAT, 0, qfalse  },
 	{ &sk_ai_dmg_springfield, "sk_ai_dmg_springfield", "35", CVAR_CHEAT, 0, qfalse  }, 
+	{ &sk_ai_dmg_springfieldscope, "sk_ai_dmg_springfieldscope", "35", CVAR_CHEAT, 0, qfalse  }, 
 
 
 	{ &g_reloading, "g_reloading", "0", CVAR_ROM },   //----(SA)	added
@@ -800,7 +804,8 @@ void G_CheckForCursorHints( gentity_t *ent ) {
 				else {
 					if ( ent->s.weapon != WP_SNIPERRIFLE &&
 						 ent->s.weapon != WP_SNOOPERSCOPE &&
-						 ent->s.weapon != WP_FG42SCOPE ) 
+						 ent->s.weapon != WP_FG42SCOPE &&
+						 ent->s.weapon != WP_SPRINGFIELDSCOPE ) 
 						{
 						if ( traceEnt->takedamage ) {
 							hintDist = CH_ACTIVATE_DIST;

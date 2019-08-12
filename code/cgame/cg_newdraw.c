@@ -244,6 +244,7 @@ static int weapIconDrawSize( int weap ) {
 	case WP_STEN:
 	case WP_MAUSER:
 	case WP_SPRINGFIELD:
+	case WP_SPRINGFIELDSCOPE:
 	case WP_GARAND:
 	case WP_VENOM:
 	case WP_TESLA:
@@ -1573,6 +1574,12 @@ qboolean CG_OwnerDrawVisible( int flags ) {
 		}
 	}
 
+	if ( flags & CG_SHOW_NOT_V_SNIPER ) {     // Should we make it separate from mauser?
+		if ( cg.weaponSelect == WP_SPRINGFIELDSCOPE ) {
+			return qfalse;
+		}
+	}
+
 //----(SA)	end
 
 	if ( flags & CG_SHOW_TEAMINFO ) {
@@ -1686,7 +1693,7 @@ qboolean CG_OwnerDrawVisible( int flags ) {
 //----(SA)	added
 	if ( flags & CG_SHOW_NOT_V_CLEAR ) {
 		// if /not/ looking through binocs,snooper or sniper
-		if ( !cg.zoomedBinoc && !( cg.weaponSelect == WP_SNIPERRIFLE ) && !( cg.weaponSelect == WP_SNOOPERSCOPE ) && !( cg.weaponSelect == WP_FG42SCOPE ) ) {
+		if ( !cg.zoomedBinoc && !( cg.weaponSelect == WP_SNIPERRIFLE ) && !( cg.weaponSelect == WP_SNOOPERSCOPE ) && !( cg.weaponSelect == WP_FG42SCOPE ) && !( cg.weaponSelect == WP_SPRINGFIELDSCOPE ) ) {
 			return qfalse;
 		}
 	}
@@ -2141,7 +2148,7 @@ void CG_DrawWeapStability( rectDef_t *rect, vec4_t color, int align ) {
 		return;
 	}
 
-	if ( cg_drawSpreadScale.integer == 1 && !( cg.weaponSelect == WP_SNOOPERSCOPE || cg.weaponSelect == WP_SNIPERRIFLE || cg.weaponSelect == WP_FG42SCOPE ) ) {
+	if ( cg_drawSpreadScale.integer == 1 && !( cg.weaponSelect == WP_SNOOPERSCOPE || cg.weaponSelect == WP_SNIPERRIFLE || cg.weaponSelect == WP_FG42SCOPE || cg.weaponSelect == WP_SPRINGFIELDSCOPE ) ) {
 		// cg_drawSpreadScale of '1' means only draw for scoped weapons, '2' means draw all the time (for debugging)
 		return;
 	}

@@ -550,8 +550,8 @@ typedef enum {
 	WP_VENOM,               // 8
 	WP_FLAMETHROWER,        // 9
 	WP_TESLA,               // 10
-	// RealRTCW weapons
-	WP_P38 ,                // 12
+
+	WP_P38,                 // 12
 	WP_G43,                 // 15
 	WP_M1GARAND,            // 16
 	WP_BAR,                 // 17
@@ -560,19 +560,20 @@ typedef enum {
 	WP_M97,                 // 20
 	WP_M3A1,                // 21
 	WP_SPRINGFIELD,         // 22
-	// end RealRTCW weapons
-	WP_COLT,                // 22	
-	WP_THOMPSON,            // 23	
-	WP_GARAND,              // 24	
-	WP_GRENADE_PINEAPPLE,   // 25
+	WP_SPRINGFIELDSCOPE,    // 23
+
+	WP_COLT,                // 24	
+	WP_THOMPSON,            // 25	
+	WP_GARAND,              // 26	
+	WP_GRENADE_PINEAPPLE,   // 27
 
 	// secondary fire weapons
-	WP_SNIPERRIFLE,         // 26
-	WP_SNOOPERSCOPE,        // 27
-	WP_FG42SCOPE,           // 28	fg42 alt fire
-	WP_STEN,                // 29	
-	WP_SILENCER,            // 30	
-	WP_AKIMBO,              // 31	
+	WP_SNIPERRIFLE,         // 28
+	WP_SNOOPERSCOPE,        // 29
+	WP_FG42SCOPE,           // 30	fg42 alt fire
+	WP_STEN,                // 31	
+	WP_SILENCER,            // 32	
+	WP_AKIMBO,              // 33	
 
 	// specialized/one-time weapons
 // JPW NERVE -- swapped mortar & antitank (unused?) and added class_special
@@ -580,22 +581,22 @@ typedef enum {
 	// (SA) go ahead and take the 'freezeray' spot.  it ain't happenin
 	//      (I checked for instances of WP_CLASS_SPECIAL and I don't think this'll cause you a problem.  however, if it does, move it where you need to. ) (SA)
 // jpw
-	WP_DYNAMITE,            // 33
+	WP_DYNAMITE,            // 34
 
-	WP_MONSTER_ATTACK1,     // 34	// generic monster attack, slot 1
-	WP_MONSTER_ATTACK2,     // 35	// generic monster attack, slot 2
-	WP_MONSTER_ATTACK3,     // 36	// generic monster attack, slot 2
+	WP_MONSTER_ATTACK1,     // 35	// generic monster attack, slot 1
+	WP_MONSTER_ATTACK2,     // 36	// generic monster attack, slot 2
+	WP_MONSTER_ATTACK3,     // 37	// generic monster attack, slot 2
 
-	WP_GAUNTLET,            // 37
+	WP_GAUNTLET,            // 38
 
-	WP_SNIPER,              // 38
-	WP_GRENADE_SMOKE,       // 39	// smoke grenade for LT multiplayer
-	WP_MEDIC_HEAL,          // 40	// DHM - Nerve :: Medic special weapon
-	WP_MORTAR,              // 41
+	WP_SNIPER,              // 39
+	WP_GRENADE_SMOKE,       // 40	// smoke grenade for LT multiplayer
+	WP_MEDIC_HEAL,          // 41	// DHM - Nerve :: Medic special weapon
+	WP_MORTAR,              // 42
 
-	VERYBIGEXPLOSION,       // 42	// explosion effect for airplanes
+	VERYBIGEXPLOSION,       // 43	// explosion effect for airplanes
 
-	WP_NUM_WEAPONS          // 43   NOTE: this cannot be larger than 64 for AI/player weapons!
+	WP_NUM_WEAPONS          // 44   NOTE: this cannot be larger than 64 for AI/player weapons!
 
 } weapon_t;
 
@@ -1166,7 +1167,7 @@ typedef enum {
 	MOD_VENOM_FULL,
 	MOD_FLAMETHROWER,
 	MOD_TESLA,
-	// RealRTCW weapons
+
 	MOD_P38,
 	MOD_G43,
 	MOD_M1GARAND,
@@ -1176,6 +1177,8 @@ typedef enum {
 	MOD_M97,
 	MOD_M3A1,
 	MOD_SPRINGFIELD,
+	MOD_SPRINGFIELDSCOPE,
+
 	MOD_SPEARGUN,
 	MOD_SPEARGUN_CO2,
 	MOD_GRENADE_PINEAPPLE,

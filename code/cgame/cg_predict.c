@@ -384,7 +384,6 @@ static void CG_TouchItem( centity_t *cent ) {
 
 		COM_BitSet( cg.predictedPlayerState.weapons, weapon );
 
-//----(SA)	added
 		if ( weapon == WP_SNOOPERSCOPE ) {
 			COM_BitSet( cg.predictedPlayerState.weapons, WP_GARAND );
 		} else if ( weapon == WP_GARAND ) {
@@ -393,6 +392,8 @@ static void CG_TouchItem( centity_t *cent ) {
 			COM_BitSet( cg.predictedPlayerState.weapons, WP_FG42SCOPE );
 		} else if ( weapon == WP_SNIPERRIFLE ) {
 			COM_BitSet( cg.predictedPlayerState.weapons, WP_MAUSER );
+		} else if ( weapon == WP_SPRINGFIELDSCOPE ) {
+			COM_BitSet( cg.predictedPlayerState.weapons, WP_SPRINGFIELD );
 		}
 
 		if ( !cg.predictedPlayerState.ammo[ BG_FindAmmoForWeapon( weapon )] ) {

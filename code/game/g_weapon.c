@@ -589,7 +589,7 @@ int G_GetWeaponDamage( int weapon, qboolean player ) {
 			case WP_GRENADE_LAUNCHER: return sk_plr_dmg_grenade.integer;	
 			case WP_GRENADE_PINEAPPLE: return sk_plr_dmg_pineapple.integer;	
 			case WP_DYNAMITE: return sk_plr_dmg_dynamite.integer;
-			// RealRTCW weapons
+
 			case WP_MP44: return sk_plr_dmg_mp44.integer;
 			case WP_P38: return sk_plr_dmg_p38.integer;
 			case WP_G43: return sk_plr_dmg_g43.integer;
@@ -599,7 +599,8 @@ int G_GetWeaponDamage( int weapon, qboolean player ) {
 			case WP_M97: return sk_plr_dmg_m97.integer;
 			case WP_M3A1: return sk_plr_dmg_m3a1.integer;
 			case WP_SPRINGFIELD: return sk_plr_dmg_springfield.integer;	
-            // end RealRTCW
+			case WP_SPRINGFIELDSCOPE: return sk_plr_dmg_springfieldscope.integer;	
+
 			case WP_MORTAR: return 100;
 			case WP_GAUNTLET: return 1;
 			case WP_SNIPER: return 1;
@@ -630,7 +631,7 @@ int G_GetWeaponDamage( int weapon, qboolean player ) {
 			case WP_GRENADE_LAUNCHER: return sk_ai_dmg_grenade.integer;	
 			case WP_GRENADE_PINEAPPLE: return sk_ai_dmg_pineapple.integer;	
 			case WP_DYNAMITE: return sk_ai_dmg_dynamite.integer;
-			// RealRTCW weapons
+
 			case WP_MP44: return sk_ai_dmg_mp44.integer;
 			case WP_P38: return sk_ai_dmg_p38.integer;
 			case WP_G43: return sk_ai_dmg_g43.integer;
@@ -640,7 +641,8 @@ int G_GetWeaponDamage( int weapon, qboolean player ) {
 			case WP_M97: return sk_ai_dmg_m97.integer;
 			case WP_M3A1: return sk_ai_dmg_m3a1.integer;
 			case WP_SPRINGFIELD: return sk_ai_dmg_springfield.integer;
-			// end RealRTCW			
+			case WP_SPRINGFIELDSCOPE: return sk_ai_dmg_springfieldscope.integer;
+		
 			case WP_MORTAR: return 100;
 			case WP_GAUNTLET: return 1;
 			case WP_SNIPER: return 1;
@@ -709,6 +711,7 @@ float G_GetWeaponSpread( int weapon ) {
 			case WP_M97:        return 4800;
 			case WP_M3A1:       return 900;  
 			case WP_SPRINGFIELD:     return 400;
+			case WP_SPRINGFIELDSCOPE:    return 300;
 
 			case WP_FG42SCOPE:  return 250;
 			case WP_FG42:       return 700; 
@@ -792,7 +795,10 @@ float G_GetWeaponSpread( int weapon ) {
 #define M3A1_DAMAGE(e)     G_GetWeaponDamage( WP_M3A1, e ) 
 
 #define SPRINGFIELD_SPREAD   G_GetWeaponSpread( WP_SPRINGFIELD )
-#define SPRINGFIELD_DAMAGE(e)   G_GetWeaponDamage( WP_SPRINGFIELD, e ) // JPW
+#define SPRINGFIELD_DAMAGE(e)   G_GetWeaponDamage( WP_SPRINGFIELD, e ) 
+
+#define SPRINGFIELDSCOPE_SPREAD   G_GetWeaponSpread( WP_SPRINGFIELDSCOPE )
+#define SPRINGFIELDSCOPE_DAMAGE(e)   G_GetWeaponDamage( WP_SPRINGFIELDSCOPE, e ) 
 
 #define MG42M_SPREAD     G_GetWeaponSpread( WP_MG42M )
 #define MG42M_DAMAGE(e)     G_GetWeaponDamage( WP_MG42M, e ) 
@@ -966,7 +972,7 @@ void Bullet_Endpos( gentity_t *ent, float spread, vec3_t *end ) {
 		r += crandom() * accuracy;
 		u += crandom() * ( accuracy * 1.25 );
 	} else {
-		if ( ent->s.weapon == WP_SNOOPERSCOPE || ent->s.weapon == WP_SNIPERRIFLE || ent->s.weapon == WP_FG42SCOPE ) {
+		if ( ent->s.weapon == WP_SNOOPERSCOPE || ent->s.weapon == WP_SNIPERRIFLE || ent->s.weapon == WP_FG42SCOPE || ent->s.weapon == WP_SPRINGFIELDSCOPE ) {
 //		if(ent->s.weapon == WP_SNOOPERSCOPE || ent->s.weapon == WP_SNIPERRIFLE) {
 			// aim dir already accounted for sway of scoped weapons in CalcMuzzlePoints()
 			dist *= 2;
@@ -1731,7 +1737,7 @@ void CalcMuzzlePoints( gentity_t *ent, int weapon ) {
 	if ( !( ent->r.svFlags & SVF_CASTAI ) ) {   // non ai's take into account scoped weapon 'sway' (just another way aimspread is visualized/utilized)
 		float spreadfrac, phase;
 
-		if ( weapon == WP_SNIPERRIFLE || weapon == WP_SNOOPERSCOPE || weapon == WP_FG42SCOPE ) {
+		if ( weapon == WP_SNIPERRIFLE || weapon == WP_SNOOPERSCOPE || weapon == WP_FG42SCOPE ||  weapon == WP_SPRINGFIELDSCOPE  ) {
 			spreadfrac = ent->client->currentAimSpreadScale;
 
 			// rotate 'forward' vector by the sway
@@ -1850,17 +1856,13 @@ void FireWeapon( gentity_t *ent ) {
 		break;
 	case WP_SNIPERRIFLE:
 		Bullet_Fire( ent, SNIPER_SPREAD * aimSpreadScale, SNIPER_DAMAGE(isPlayer) );
-// JPW NERVE -- added muzzle flip in multiplayer
 		if ( !ent->aiCharacter ) {
-//		if (g_gametype.integer != GT_SINGLE_PLAYER) {
 			VectorCopy( ent->client->ps.viewangles,viewang );
-//			viewang[PITCH] -= 6; // handled in clientthink instead
 			ent->client->sniperRifleMuzzleYaw = crandom() * 0.5; // used in clientthink
 			ent->client->sniperRifleMuzzlePitch = 0.8f;
 			ent->client->sniperRifleFiredTime = level.time;
 			SetClientViewAngle( ent,viewang );
 		}
-// jpw
 		break;
 		
 	case WP_SNOOPERSCOPE:
@@ -1926,6 +1928,16 @@ void FireWeapon( gentity_t *ent ) {
 		break;
 	case WP_SPRINGFIELD: 
 		Bullet_Fire( ent, SPRINGFIELD_SPREAD * aimSpreadScale, SPRINGFIELD_DAMAGE(isPlayer) );
+		break;
+	case WP_SPRINGFIELDSCOPE:
+		Bullet_Fire( ent, SPRINGFIELDSCOPE_SPREAD * aimSpreadScale, SPRINGFIELDSCOPE_DAMAGE(isPlayer) );
+		if ( !ent->aiCharacter ) {
+			VectorCopy( ent->client->ps.viewangles,viewang );
+			ent->client->sniperRifleMuzzleYaw = crandom() * 0.5; // used in clientthink
+			ent->client->sniperRifleMuzzlePitch = 0.8f;
+			ent->client->sniperRifleFiredTime = level.time;
+			SetClientViewAngle( ent,viewang );
+		}
 		break;
 	case WP_MG42M: 
 		Bullet_Fire( ent, MG42M_SPREAD * 0.6f * aimSpreadScale, MG42M_DAMAGE(isPlayer) );

@@ -1178,7 +1178,7 @@ void CG_RegisterWeapon( int weaponNum ) {
 
 
 	// sniper scope model
-	if ( weaponNum == WP_MAUSER || weaponNum == WP_GARAND || weaponNum == WP_M1GARAND ) {
+	if ( weaponNum == WP_MAUSER || weaponNum == WP_GARAND || weaponNum == WP_SPRINGFIELD ) {
 
 		if ( !item->world_model[W_FP_MODEL] ) {
 			Q_strncpyz( path, comppath, sizeof(path) );
@@ -1290,6 +1290,15 @@ weaponInfo->handsSkin = trap_R_RegisterSkin(handsskin);
 		break;
 
 	case WP_SPRINGFIELD:
+		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
+		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/springfield/springfield_fire.wav" );
+		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/springfield/springfield_far.wav" );
+		weaponInfo->lastShotSound[0] = trap_S_RegisterSound( "sound/weapons/springfield/springfield_fire_last.wav" );
+		weaponInfo->reloadSound = trap_S_RegisterSound( "sound/weapons/springfield/springfield_reload.wav" );
+		weaponInfo->ejectBrassFunc = CG_MachineGunEjectBrass;
+		break;
+	
+	case WP_SPRINGFIELDSCOPE:
 		MAKERGB( weaponInfo->flashDlightColor, 1.0, 0.6, 0.23 );
 		weaponInfo->flashSound[0] = trap_S_RegisterSound( "sound/weapons/springfield/springfield_fire.wav" );
 		weaponInfo->flashEchoSound[0] = trap_S_RegisterSound( "sound/weapons/springfield/springfield_far.wav" );
@@ -2561,8 +2570,8 @@ void CG_AddPlayerWeapon( refEntity_t *parent, playerState_t *ps, centity_t *cent
 	}
 
 	// don't draw weapon stuff when looking through a scope
-	if ( weaponNum == WP_SNOOPERSCOPE || weaponNum == WP_SNIPERRIFLE || weaponNum == WP_FG42SCOPE ||
-		 weapSelect == WP_SNOOPERSCOPE || weapSelect == WP_SNIPERRIFLE || weapSelect == WP_FG42SCOPE ) {
+	if ( weaponNum == WP_SNOOPERSCOPE || weaponNum == WP_SNIPERRIFLE || weaponNum == WP_FG42SCOPE || weaponNum == WP_SPRINGFIELDSCOPE ||
+		 weapSelect == WP_SNOOPERSCOPE || weapSelect == WP_SNIPERRIFLE || weapSelect == WP_FG42SCOPE || weapSelect == WP_SPRINGFIELDSCOPE ) {
 		if ( isPlayer && !cg.renderingThirdPerson ) {
 			return;
 		}
@@ -2804,6 +2813,19 @@ void CG_AddPlayerWeapon( refEntity_t *parent, playerState_t *ps, centity_t *cent
 	if ( isPlayer && !cg.renderingThirdPerson ) {      // (SA) for now just do it on the first person weapons
 		if ( weaponNum == WP_MAUSER ) {
 			if ( COM_BitCheck( cg.predictedPlayerState.weapons, WP_SNIPERRIFLE ) ) {
+				barrel.hModel = weapon->modModel[0];
+				if ( barrel.hModel ) {
+					CG_PositionEntityOnTag( &barrel, &gun, "tag_scope", 0, NULL );
+					CG_AddWeaponWithPowerups( &barrel, cent->currentState.powerups, ps, cent );
+				}
+			}
+		}
+	}
+	
+	// add the scope model to the rifle if you've got it
+	if ( isPlayer && !cg.renderingThirdPerson ) {      // (SA) for now just do it on the first person weapons
+		if ( weaponNum == WP_SPRINGFIELD ) {
+			if ( COM_BitCheck( cg.predictedPlayerState.weapons, WP_SPRINGFIELDSCOPE ) ) {
 				barrel.hModel = weapon->modModel[0];
 				if ( barrel.hModel ) {
 					CG_PositionEntityOnTag( &barrel, &gun, "tag_scope", 0, NULL );
@@ -3505,6 +3527,11 @@ static qboolean CG_WeaponSelectable( int i ) {
 			return qtrue;
 		}
 		break;
+	case WP_SPRINGFIELDSCOPE:
+		if ( i == WP_SPRINGFIELD ) {
+			return qtrue;
+		}
+		break;
 	case WP_FG42SCOPE:
 		if ( i == WP_FG42 ) {
 			return qtrue;
@@ -3867,6 +3894,10 @@ void CG_SetSniperZoom( int lastweap, int newweap ) {
 //			cg.zoomedScope	= 1;	// TODO: add to zoomTable
 //			cg.zoomTime		= cg.time;
 		break;
+	case WP_SPRINGFIELDSCOPE:
+//			cg.zoomedScope	= 1;	// TODO: add to zoomTable
+//			cg.zoomTime		= cg.time;
+		break;
 	}
 
 	switch ( newweap ) {
@@ -3888,6 +3919,11 @@ void CG_SetSniperZoom( int lastweap, int newweap ) {
 		cg.zoomval = cg_zoomDefaultFG.value;
 		cg.zoomedScope  = 1;        // TODO: add to zoomTable
 		zoomindex = ZOOM_FG42SCOPE;
+		break;
+	case WP_SPRINGFIELDSCOPE:
+		cg.zoomval = cg_zoomDefaultSpringfieldscope.value;
+		cg.zoomedScope  = 900;      // TODO: add to zoomTable
+		zoomindex = ZOOM_SPRINGFIELDSCOPE;
 		break;
 	}
 
@@ -3961,6 +3997,7 @@ void CG_FinishWeaponChange( int lastweap, int newweap ) {
 		case WP_SNIPERRIFLE:
 		case WP_SNOOPERSCOPE:
 		case WP_FG42SCOPE:
+		case WP_SPRINGFIELDSCOPE:
 			break;
 		default:
 			cg.switchbackWeapon = lastweap;
@@ -4783,6 +4820,7 @@ void CG_WeaponFireRecoil( int weapon ) {
 		break;
 	case WP_SNIPERRIFLE:
 	case WP_SNOOPERSCOPE:
+	case WP_SPRINGFIELDSCOPE:
 		pitchAdd = 0.7;
 		break;
 	case WP_FG42SCOPE:
@@ -5264,6 +5302,7 @@ void CG_MissileHitWall( int weapon, int clientNum, vec3_t origin, vec3_t dir, in
 	case WP_COLT:
 	case WP_MAUSER:
 	case WP_SPRINGFIELD:
+	case WP_SPRINGFIELDSCOPE:
 	case WP_GARAND:
 	case WP_SNIPERRIFLE:
 	case WP_SNOOPERSCOPE:
@@ -5389,7 +5428,7 @@ void CG_MissileHitWall( int weapon, int clientNum, vec3_t origin, vec3_t dir, in
 		// enough to see it, this way we can leave other marks around a lot
 		// longer, since most of the time we can't actually see the bullet holes
 // (SA) small modification.  only do this for non-rifles (so you can see your shots hitting when you're zooming with a rifle scope)
-		if ( weapon == WP_FG42SCOPE || weapon == WP_SNIPERRIFLE || weapon == WP_SNOOPERSCOPE || ( Distance( cg.refdef.vieworg, origin ) < 384 ) ) {
+		if ( weapon == WP_FG42SCOPE || weapon == WP_SNIPERRIFLE || weapon == WP_SNOOPERSCOPE || weapon == WP_SPRINGFIELDSCOPE || ( Distance( cg.refdef.vieworg, origin ) < 384 ) ) {
 
 			if ( clientNum ) {
 
