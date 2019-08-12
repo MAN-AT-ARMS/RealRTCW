@@ -648,7 +648,7 @@ qboolean IsHeadShotWeapon( int mod, gentity_t *targ, gentity_t *attacker ) {
 			 mod == MOD_SPRINGFIELD ) {
 			return qtrue;
 		}
-		if ( g_gameskill.integer != GSKILL_MAX GSKILL ) { 
+		if ( g_gameskill.integer != GSKILL_MAX || GSKILL_HARD ) { 
 			// ai's allowed headshots in skill==GSKILL_MAX
 			return qfalse;
 		}
