@@ -641,15 +641,15 @@ qboolean IsHeadShotWeapon( int mod, gentity_t *targ, gentity_t *attacker ) {
 
 	if ( attacker->aiCharacter ) {
 		// ai's are always allowed headshots from these weapons
-		//if ( mod == MOD_SNIPERRIFLE ||
-			 //mod == MOD_SNOOPERSCOPE ) {
-			//return qtrue;
-		//}
-         // RealRTCW removed this,cause its overpowered
-		//if ( g_gameskill.integer != GSKILL_MAX ) { 
+		if ( mod == MOD_SNIPERRIFLE ||
+			 mod == MOD_SNOOPERSCOPE ||
+			 mod == MOD_MAUSER ) {
+			return qtrue;
+		}
+		if ( g_gameskill.integer != GSKILL_MAX GSKILL ) { 
 			// ai's allowed headshots in skill==GSKILL_MAX
-			//return qfalse;
-		//}
+			return qfalse;
+		}
 		return qfalse;
 	}
 
@@ -1199,7 +1199,7 @@ void G_Damage( gentity_t *targ, gentity_t *inflictor, gentity_t *attacker,
 		} // jpw
 		else {
 			// by default, a headshot means damage x2
-			take *= 2;
+			take *= 2; // gothicstein
 
 			// RF, allow headshot damage multiplier (helmets, etc)
 			// yes, headshotDamageScale of 0 gives no damage, thats because
