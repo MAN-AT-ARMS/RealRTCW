@@ -492,10 +492,15 @@ typedef struct {
 	qboolean pmoveFixed;            //
 	char netname[MAX_NETNAME];
 
+	unsigned int clientFlags;           // Client settings that need server involvement
+	unsigned int clientMaxPackets;      // Client com_maxpacket settings
+	unsigned int clientTimeNudge;       // Client cl_timenudge settings
+
 	int autoActivate;               // based on cg_autoactivate userinfo		(uses the PICKUP_ values above)
 	int emptySwitch;                // based on cg_emptyswitch userinfo (means "switch my weapon for me when ammo reaches '0' rather than -1)
 
 	int maxHealth;                  // for handicapping
+	qboolean bAutoReloadAux;        // gothicstein - auxiliary storage for pmoveExt_t::bAutoReload, to achieve persistance
 	int enterTime;                  // level.time the client entered the game
 	playerTeamState_t teamState;    // status in teamplay games
 	int voteCount;                  // to prevent people from constantly calling votes

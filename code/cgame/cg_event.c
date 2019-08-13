@@ -2024,7 +2024,8 @@ void CG_EntityEvent( centity_t *cent, vec3_t position ) {
 			trap_S_StartSound( NULL, es->number, CHAN_AUTO, cgs.media.noAmmoSound );
 		}
 		if ( es->number == cg.snap->ps.clientNum ) {
-			CG_OutOfAmmoChange();
+			return;
+			//CG_OutOfAmmoChange(); gothicstein
 		}
 		break;
 	case EV_CHANGE_WEAPON:

@@ -1752,7 +1752,14 @@ extern vmCvar_t cg_currentSelectedPlayerName;
 
 // Rafael - particle switch
 extern vmCvar_t cg_wolfparticles;
+
 // done
+
+// Gothicstein
+extern vmCvar_t cg_autoReload;
+extern vmCvar_t cg_uinfo;
+extern vmCvar_t int_cl_maxpackets;
+extern vmCvar_t int_cl_timenudge;
 
 // Ridah
 extern vmCvar_t cg_gameType;
