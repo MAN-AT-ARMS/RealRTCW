@@ -576,14 +576,14 @@ model="models/powerups/health/health_s.md3"
 		"icons/iconh_small",
 		NULL,   // ammo icon
 		"Small Health",
-		5,
+		10,
 		IT_HEALTH,
 		0,
 		0,
 		0,
 		"",
 		"",
-		{15,10,5,5}
+		{15,10,10,10}
 	},
 
 /*QUAKED item_health (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
@@ -656,14 +656,14 @@ model="models/powerups/health/health_t1.md3"
 		"icons/iconh_turkey",
 		NULL,   // ammo icon
 		"Hot Meal",
-		10,                 // amount given in last stage
+		5,                 // amount given in last stage
 		IT_HEALTH,
 		0,
 		0,
 		0,
 		"",
 		"",
-		{45,35,25,10}   // amount given in first stage based on gameskill level
+		{5,5,5,5}   // amount given in first stage based on gameskill level
 	},
 
 /*QUAKED item_health_breadandmeat (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
@@ -689,14 +689,14 @@ model="models/powerups/health/health_b1.md3"
 		"icons/iconh_breadandmeat",
 		NULL,   // ammo icon
 		"Cold Meal",
-		10,                 // amount given in last stage
+		5,                 // amount given in last stage
 		IT_HEALTH,
 		0,
 		0,
 		0,
 		"",
 		"",
-		{30,30,20,10}   // amount given in first stage based on gameskill level
+		{5,5,5,5}   // amount given in first stage based on gameskill level
 	},
 
 /*QUAKED item_health_wall_box (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED - - RESPAWN
@@ -2704,7 +2704,7 @@ model="models/powerups/holdable/wine.md3"
 		0,
 		"",                              // precache
 		"sound/pickup/holdable/use_wine.wav",        // sounds
-		{3,0,0,0}
+		{5,0,0,0}
 	},
 
 

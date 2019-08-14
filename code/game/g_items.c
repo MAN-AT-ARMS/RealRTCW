@@ -217,18 +217,28 @@ UseHoldableItem
 */
 void UseHoldableItem( gentity_t *ent, int item ) {
 	switch ( item ) {
-	case HI_WINE:           // 1921 Chateu Lafite - gives 25 pts health up to max health
-		ent->health += 30;
-		if ( ent->health > ent->client->ps.stats[STAT_MAX_HEALTH] ) {
-			ent->health = ent->client->ps.stats[STAT_MAX_HEALTH];
-		}
+	case HI_WINE:           // 1921 Chateu Lafite - gives 25 pts health up to max health Gothicstein swapped
+	    ent->client->ps.powerups[PW_NOFATIGUE] = 60000;
 		break;
 
-	case HI_STAMINA:        // restores fatigue bar and sets "nofatigue" for a time period (currently forced to 60 sec)
+	case HI_BANDAGES:        // restores fatigue bar and sets "nofatigue" for a time period (currently forced to 60 sec)
 		//----(SA)	NOTE:	currently only gives free nofatigue time, doesn't reset fatigue bar.
 		//					(this is because I'd like the restore to be visually gradual (on the HUD item representing
 		//					current status of your fatigue) rather than snapping back to 'full')
-		ent->client->ps.powerups[PW_NOFATIGUE] = 60000;
+
+			if (g_gameskill.integer == GSKILL_EASY) {
+				ent->health += 20;
+			}	else if ( g_gameskill.integer == GSKILL_MEDIUM ) {
+				ent->health += 15;
+			}   else if ( g_gameskill.integer == GSKILL_HARD ) {
+				ent->health += 10;
+			} else if ( g_gameskill.integer == GSKILL_MAX ) {
+				ent->health += 5;
+			}
+				
+		if ( ent->health > ent->client->ps.stats[STAT_MAX_HEALTH] ) {
+			ent->health = ent->client->ps.stats[STAT_MAX_HEALTH];
+		}
 		break;
 
 	case HI_BOOK1:
