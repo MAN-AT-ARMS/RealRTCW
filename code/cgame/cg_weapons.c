@@ -2470,13 +2470,13 @@ void CG_PlayerTeslaCoilFire( centity_t *cent, vec3_t flashorigin ) {
 
 	if ( ( cg.time / 50 ) % ( 4 + ( cg.time % 4 ) ) == 0 ) {
 		// alt light
-		trap_R_AddLightToScene( tr.endpos, 256 + 600 * tr.fraction, 0.2, 0.6, 1, 1 );
+		trap_R_AddLightToScene( tr.endpos, 256 + 600 * tr.fraction, 255.0, 0.0, 0, 1 ); // gothicstein
 	} else if ( ( cg.time / 50 ) % ( 4 + ( cg.time % 4 ) ) == 1 ) {
 		// no light
 		//trap_R_AddLightToScene( tr.endpos, 128 + 500*tr.fraction, 1, 1, 1, 10 );
 	} else {
 		// blue light
-		trap_R_AddLightToScene( tr.endpos, 256 + 600 * tr.fraction, 0.2, 0.6, 1, 0 );
+		trap_R_AddLightToScene( tr.endpos, 256 + 600 * tr.fraction, 255.0, 0.0, 0, 0 ); // gothicstein
 	}
 
 	// shake the camera a bit
@@ -4752,7 +4752,7 @@ void CG_FLAKEFX( centity_t *cent, int whichgun ) {
 		VectorMA( point, -22, right, point );
 	}
 
-	trap_R_AddLightToScene( point, 200 + ( rand() & 31 ),1.0, 0.6, 0.23, 0 );
+	trap_R_AddLightToScene( point, 200 + ( rand() & 31 ),255.0, 0.0, 0.0, 0 ); // gothicstein
 
 	memset( &flash, 0, sizeof( flash ) );
 	flash.renderfx = RF_LIGHTING_ORIGIN;
