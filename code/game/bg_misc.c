@@ -112,7 +112,7 @@ ammotable_t ammoTable[] = {
 	{   MAX_AMMO_44AMMO,  1,    30,     2600,   DELAY_LOW,      105,    0,      0,      MOD_MP44                },  //	WP_MP44					// 18
 	{   MAX_AMMO_MAUSER,  1,    100,    2600,   DELAY_LOW,      65,     2500,   200,    MOD_MG42M               },  //	WP_MG42M                // 19
 	{   MAX_AMMO_M97,     1,    6,      2000,   DELAY_LOW,      1250,   0,      0,      MOD_M97                 },  //	WP_M97                  // 20
-	{   MAX_AMMO_9MM,     1,    30,     2600,   DELAY_LOW,      105,    0,      0,      MOD_M3A1                },  //	WP_M3A1					// 21
+	{   MAX_AMMO_9MM,     1,    30,     2600,   DELAY_LOW,      120,    0,      0,      MOD_M3A1                },  //	WP_M3A1					// 21
 	{   MAX_AMMO_BARAMMO, 1,    5,      2600,   DELAY_HIGH,     1400,    0,      0,     MOD_SPRINGFIELD         },  //	WP_SPRINGFIELD		    // 22
 	{   MAX_AMMO_BARAMMO, 1,    5,      2600,   DELAY_HIGH,     1400,    0,      0,     MOD_SPRINGFIELDSCOPE    },  //	WP_SPRINGFIELDSCOPE		// 23
 
