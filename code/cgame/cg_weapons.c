@@ -3155,6 +3155,16 @@ void CG_AddViewWeapon( playerState_t *ps ) {
 		     gunoff[1] = 1;
 		     gunoff[2] = 0;
 		break;
+		case WP_M3A1:
+			 gunoff[0] = -1;
+		     gunoff[1] = -1;
+		     gunoff[2] = 1;
+		break;
+		case WP_STEN:
+			 gunoff[0] = -1;
+		     gunoff[1] = -3;
+		     gunoff[2] = 1;
+		break;
 		case WP_LUGER:
 		case WP_SILENCER:
 		case WP_P38:
@@ -3168,6 +3178,12 @@ void CG_AddViewWeapon( playerState_t *ps ) {
 			 gunoff[0] = -2;
 		     gunoff[1] = 0;
 		     gunoff[2] = 1;
+		break;
+		case WP_SPRINGFIELD:
+		case WP_SPRINGFIELDSCOPE:
+			 gunoff[0] = -2;
+		     gunoff[1] = 0;
+		     gunoff[2] = 2;
 		break;
 		case WP_G43:
 			 gunoff[0] = 0;
