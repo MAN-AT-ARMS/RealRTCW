@@ -1657,10 +1657,10 @@ model="models/weapons2/p38/p38.md3"
 		"icons/iconw_p38",    // icon
 		"icons/ammo9",      // ammo icon
 		"p38",              // pickup
-		30,
+		50,
 		IT_WEAPON,
 		WP_P38,
-		WP_P38,
+		WP_LUGER,
 		WP_P38,
 		"",                  // precache
 		"",                  // sounds
