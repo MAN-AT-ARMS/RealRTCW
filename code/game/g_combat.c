@@ -1202,7 +1202,7 @@ void G_Damage( gentity_t *targ, gentity_t *inflictor, gentity_t *attacker,
 		} // jpw
 		else {
 			// by default, a headshot means damage x2
-			take *= 2; // gothicstein
+			take *= 1.5; // gothicstein
 
 			// RF, allow headshot damage multiplier (helmets, etc)
 			// yes, headshotDamageScale of 0 gives no damage, thats because
