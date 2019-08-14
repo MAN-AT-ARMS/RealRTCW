@@ -3691,7 +3691,7 @@ void CG_AddLoperLightningEffect( centity_t *cent ) {
 	trace_t tr;
 	float maxDist;
 	int numPoints;
-	float colTake;
+	//float colTake;
 
 	if ( cent->currentState.aiChar != AICHAR_LOPER ) {
 		return;
@@ -3720,14 +3720,14 @@ void CG_AddLoperLightningEffect( centity_t *cent ) {
 	CG_GetOriginForTag( cent, &cent->pe.legsRefEnt, "tag_spinner", 0, tagPos, NULL );
 
 	// show a dlight
-	// color
-	colTake = 0.8 - fabs( sin( cg.time ) ) * 0.3;
-	c[0] = 1.0 - colTake;
-	c[1] = 1.0 - 0.7 * colTake;
-	c[2] = 1.0; //c[1] + 0.2;
-	if ( c[2] > 1.0 ) {
-		c[2] = 1.0;
-	}
+	// color // gothicstein
+	//colTake = 0.8 - fabs( sin( cg.time ) ) * 0.3;
+	c[0] = 255.0;
+	c[1] = 0.0;
+	c[2] = 0.0; //c[1] + 0.2;
+	//if ( c[2] > 1.0 ) {
+	//	c[2] = 1.0;
+	//}
 	//VectorScale( c, alpha, c );
 	// add the light
 	trap_R_AddLightToScene( tagPos, LOPER_LIGHTNING_NORMAL_DIST * ( 2.5 + ( 1.0 + sin( cg.time ) ) / 4.0 ), c[0], c[1], c[2], 1 );
@@ -3814,7 +3814,7 @@ void CG_AddLoperGroundEffect( centity_t *cent ) {
 #define LOPER_GROUNDCHARGE_RADIUS   150
 	vec3_t org, c;
 	//static vec3_t up = {0,0,1}; // TTimo: unused
-	float colTake;
+	//float colTake;
 	int duration;
 	float alpha, lightAlpha = 0.0f;   // TTimo: init
 
@@ -3865,14 +3865,14 @@ void CG_AddLoperGroundEffect( centity_t *cent ) {
 	}
 
 	// show a dlight
-	// color
-	colTake = 0.8 - fabs( sin( cg.time ) ) * 0.3;
-	c[0] = 1.0 - colTake;
-	c[1] = 1.0 - 0.8 * colTake;
-	c[2] = 1.0; //c[1] + 0.2;
-	if ( c[2] > 1.0 ) {
-		c[2] = 1.0;
-	}
+	// color gothicstein
+	//colTake = 0.8 - fabs( sin( cg.time ) ) * 0.3;
+	c[0] = 255.0;
+	c[1] = 0.0 - 0.0;
+	c[2] = 0.0; //c[1] + 0.2;
+	//if ( c[2] > 1.0 ) {
+	//	c[2] = 1.0;
+	//}
 	VectorScale( c, alpha, c );
 	// add the light
 	trap_R_AddLightToScene( cent->lerpOrigin, LOPER_GROUNDCHARGE_RADIUS * ( 3.0 + 2.0 * ( 1.0 + sin( 0.001 * ( ( cg.time ) % ( 1000 * ( 2 + cent->currentState.number ) ) ) ) ) / 2.0 ), c[0], c[1], c[2], 1 );
@@ -3889,14 +3889,14 @@ void CG_AddLoperGroundEffect( centity_t *cent ) {
 		org[2] -= 20;
 		// color
 		if ( cent->pe.loperGroundChargeToggle ^= 1 ) {
-			// random blue
-			colTake = 0.5 + random() * 0.5;
-			c[0] = 1.0 - colTake;
-			c[1] = 1.0 - /*(0.5 + 0.5*random())**/ colTake;
-			c[2] = c[1] + 0.2;
-			if ( c[2] > 1.0 ) {
-				c[2] = 1.0;
-			}
+			// random blue gothicstein
+			//colTake = 0.5 + random() * 0.5;
+			c[0] = 255.0;
+			c[1] = 0.0  /*(0.5 + 0.5*random())**/;
+			c[2] = 0.0;
+			//if ( c[2] > 1.0 ) {
+			//	c[2] = 1.0;
+		//	}
 		} else {
 			VectorSet( c, 1,1,1 );
 		}
