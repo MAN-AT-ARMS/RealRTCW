@@ -502,6 +502,7 @@ int Pickup_Health( gentity_t *ent, gentity_t *other ) {
 	int max;
 	int quantity = 0;
 
+    // Gothicstein removed
 	// small and mega healths will go over the max
 	if ( ent->item->quantity != 5 && ent->item->quantity != 100  ) {
 		max = other->client->ps.stats[STAT_MAX_HEALTH];

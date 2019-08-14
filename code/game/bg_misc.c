@@ -2852,15 +2852,15 @@ model="models/powerups/holdable/stamina.md3"
 		},
 		"icons/stamina",             // icon
 		NULL,                           // ammo icon
-		"Added Stamina",             // pickup
+		"Added Bandages",             // pickup
 		1,
 		IT_HOLDABLE,
-		HI_STAMINA,
+		HI_BANDAGES,
 		0,
 		0,
 		"",                              // precache
 		"sound/pickup/holdable/use_stamina.wav", // sounds
-		{0,0,0,0}
+		{4,0,0,0}
 	},
 
 
