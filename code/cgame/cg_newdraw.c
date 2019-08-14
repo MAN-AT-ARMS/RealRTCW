@@ -1574,7 +1574,7 @@ qboolean CG_OwnerDrawVisible( int flags ) {
 		}
 	}
 
-	if ( flags & CG_SHOW_NOT_V_SNIPER ) {     // Should we make it separate from mauser?
+	if ( flags & CG_SHOW_NOT_V_SPRNGSCOPE ) {     // Should we make it separate from mauser?
 		if ( cg.weaponSelect == WP_SPRINGFIELDSCOPE ) {
 			return qfalse;
 		}
@@ -1698,7 +1698,7 @@ qboolean CG_OwnerDrawVisible( int flags ) {
 		}
 	}
 
-	if ( flags & ( CG_SHOW_NOT_V_BINOC | CG_SHOW_NOT_V_SNIPER | CG_SHOW_NOT_V_SNOOPER | CG_SHOW_NOT_V_FGSCOPE ) ) {
+	if ( flags & ( CG_SHOW_NOT_V_BINOC | CG_SHOW_NOT_V_SNIPER | CG_SHOW_NOT_V_SNOOPER | CG_SHOW_NOT_V_FGSCOPE | CG_SHOW_NOT_V_SPRNGSCOPE  ) ) {
 		// setting any of these does not necessarily disable drawing in regular view
 		// CG_SHOW_NOT_V_CLEAR must also be set to hide for reg view
 		if ( !( flags & CG_SHOW_NOT_V_CLEAR ) ) {

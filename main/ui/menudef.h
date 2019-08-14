@@ -132,6 +132,7 @@ If you have questions concerning this license or the applicable additional terms
 #define CG_SHOW_NOT_V_SNOOPER               0x00800000  //----(SA)	added	// hide on snooper huds
 #define CG_SHOW_NOT_V_FGSCOPE               0x01000000  //----(SA)	added	// hide on fg42 scope huds
 #define CG_SHOW_NOT_V_CLEAR                 0x02000000  //----(SA)	added	// hide on normal, full-view huds
+#define CG_SHOW_NOT_V_SPRNGSCOPE            0x04000000  //----(SA)	added	// hide on sniper huds
 
 #define CG_SHOW_2DONLY                      0x10000000
 
