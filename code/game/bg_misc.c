@@ -1878,7 +1878,7 @@ model="models/weapons2/springfield/springfield.md3"
 		"icons/iconw_springfield",  // icon
 		"icons/ammo3",           // ammo icon
 		"Springfield",          // pickup
-		50,
+		30,
 		IT_WEAPON,
 		WP_SPRINGFIELD,
 		WP_BAR,
@@ -1896,15 +1896,15 @@ model="models/weapons2/springfield/pu_springfield_scope.md3"
 	{
 		"weapon_springfieldscope",
 		"sound/misc/w_pkup.wav",
-		{   "models/weapons2/springfield/springfield.md3",
+		{   "models/weapons2/springfield/pu_springfield_scope.md3",
 			"models/weapons2/springfield/v_springfield.md3",
-			"models/weapons2/springfield/pu_springfield_scope.md3",
+			"models/weapons2/springfield/pu_springfield.md3",
 			0, 0 },
 
 		"icons/iconw_springfield",  // icon
 		"icons/ammo3",              // ammo icon
 		"Springfield Scope",              // pickup
-		50,
+		30,
 		IT_WEAPON,
 		WP_SPRINGFIELDSCOPE,
 		WP_BAR,
