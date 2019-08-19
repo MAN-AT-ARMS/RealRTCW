@@ -1941,6 +1941,7 @@ void FireWeapon( gentity_t *ent ) {
 		break;
 	case WP_MG42M: 
 		Bullet_Fire( ent, MG42M_SPREAD * 0.6f * aimSpreadScale, MG42M_DAMAGE(isPlayer) );
+		Bullet_Fire( ent, MG42M_SPREAD * 0.6f * aimSpreadScale, MG42M_DAMAGE(isPlayer) );
 		if (!ent->aiCharacter) {
 			vec3_t vec_forward, vec_vangle;
 			VectorCopy(ent->client->ps.viewangles, vec_vangle);
