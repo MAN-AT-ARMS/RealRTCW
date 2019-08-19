@@ -394,11 +394,11 @@ static float PM_CmdScale( usercmd_t *cmd ) {
 	scale = (float)pm->ps->speed * max / ( 127.0 * total );
 
 if ( pm->ps->aiChar == AICHAR_ZOMBIE || pm->ps->aiChar == AICHAR_WARZOMBIE ) { // RealRTCW
-		scale *= 1.1;
+		scale *= 1.2;
 	}
 
 	if ( pm->ps->aiChar == AICHAR_ELITEGUARD ) {
-		scale *= 1.2;
+		scale *= 1.3;
 	}
 
 		if ( pm->ps->aiChar == AICHAR_HEINRICH ) {
@@ -437,20 +437,20 @@ if ( pm->ps->aiChar == AICHAR_ZOMBIE || pm->ps->aiChar == AICHAR_WARZOMBIE ) { /
 #endif
 if ( ! (pm->ps->aiChar))  // RealRTCW weapon weight does not affect AI now
 	{
-		if ( ( pm->ps->weapon == WP_PANZERFAUST ) || ( pm->ps->weapon == WP_FLAMETHROWER ) || ( pm->ps->weapon == WP_TESLA ) || ( pm->ps->weapon == WP_MG42M ) ) {
+		if ( ( pm->ps->weapon == WP_PANZERFAUST ) || ( pm->ps->weapon == WP_FLAMETHROWER ) || ( pm->ps->weapon == WP_TESLA ) ) {
 			scale *= 0.75; 
         }
 		if  ( pm->ps->weapon == WP_MG42M ) { //gothicstein
-			scale *= 0.50;
+			scale *= 0.70;
 		}
 		if  ( pm->ps->weapon == WP_VENOM ) { //gothicstein
 			scale *= 0.80;
 		}
 		if ( ( pm->ps->weapon == WP_MP40 ) || ( pm->ps->weapon == WP_THOMPSON ) || ( pm->ps->weapon == WP_STEN ) || ( pm->ps->weapon == WP_FG42 ) || ( pm->ps->weapon == WP_MAUSER ) || ( pm->ps->weapon == WP_MP44 ) || ( pm->ps->weapon == WP_GARAND ) || ( pm->ps->weapon == WP_G43 ) || ( pm->ps->weapon == WP_BAR )  || ( pm->ps->weapon == WP_M1GARAND ) || (pm->ps->weapon == WP_M97) || (pm->ps->weapon == WP_M3A1) || (pm->ps->weapon == WP_SPRINGFIELD)  )  {
-			scale *= 0.90; 
+			scale *= 0.85; 
 		}
 		if ( ( pm->ps->weapon == WP_LUGER ) || ( pm->ps->weapon == WP_COLT ) || ( pm->ps->weapon == WP_AKIMBO ) || ( pm->ps->weapon == WP_SILENCER ) || ( pm->ps->weapon == WP_DYNAMITE ) || ( pm->ps->weapon == WP_GRENADE_LAUNCHER ) || ( pm->ps->weapon == WP_GRENADE_PINEAPPLE )  || ( pm->ps->weapon == WP_P38  ) ) {
-			scale *= 0.95; 
+			scale *= 0.90; 
 		}
 	}
 // jpw
@@ -953,7 +953,7 @@ static void PM_WalkMove( void ) {
 			} else {
 				pm->ps->jumpTime = pm->cmd.serverTime;
 
-				stamtake = 1000;    // amount to take for jump RealRTCW was 2000
+				stamtake = 6000;    // amount to take for jump RealRTCW was 2000
 
 				// take time from powerup before taking it from sprintTime
 				if ( pm->ps->powerups[PW_NOFATIGUE] ) {
@@ -4086,7 +4086,7 @@ void PM_Sprint( void ) {
 			) {
 
 		if ( pm->ps->powerups[PW_NOFATIGUE] ) {    // take time from powerup before taking it from sprintTime
-			pm->ps->powerups[PW_NOFATIGUE] -= 25; // RealRTCW was 50
+			pm->ps->powerups[PW_NOFATIGUE] -= 75; // RealRTCW was 50
 
 			pm->ps->sprintTime += 10;           // (SA) go ahead and continue to recharge stamina at double rate with stamina powerup even when exerting
 			if ( pm->ps->sprintTime > 20000 ) {
@@ -4099,7 +4099,7 @@ void PM_Sprint( void ) {
 		} else {
 			// RF, dont drain sprintTime if not moving
 			if ( VectorLength( pm->ps->velocity ) > 128 ) { // (SA) check for a bit more movement
-				pm->ps->sprintTime -= 25; // RealRTCW was 50
+				pm->ps->sprintTime -= 75; // RealRTCW was 50
 			}
 		}
 
