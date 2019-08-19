@@ -42,7 +42,7 @@ If you have questions concerning this license or the applicable additional terms
 
 #define DEFAULT_GRAVITY     800
 #define GIB_HEALTH          -200 // was -120
-#define ARMOR_PROTECTION    0.70 // RealRTCW was 0.66
+#define ARMOR_PROTECTION    0.50 // RealRTCW was 0.66
 
 #define MAX_ITEMS           256
 
