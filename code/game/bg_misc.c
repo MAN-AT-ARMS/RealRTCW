@@ -102,7 +102,7 @@ ammotable_t ammoTable[] = {
 	{   MAX_AMMO_FG42,  1,      20,     2000,   DELAY_LOW,      170,    0,      0,      MOD_FG42                },  //	WP_FG42					// 5
 	{   5,              1,      5,      1000,   DELAY_THROW,    1600,   0,      0,      MOD_GRENADE_LAUNCHER    },  //	WP_GRENADE_LAUNCHER		// 6
 	{   1,              1,      1,      1000,   DELAY_SHOULDER, 2000,   0,      0,      MOD_PANZERFAUST         },  //	WP_PANZERFAUST			// 7
-	{   MAX_AMMO_VENOM, 1,      500,    3000,   750,            45,     3500,   200,    MOD_VENOM               },  //	WP_VENOM				// 8	
+	{   MAX_AMMO_VENOM, 1,      500,    3000,   750,            40,     3500,   200,    MOD_VENOM               },  //	WP_VENOM				// 8	
 	{   100,            1,      100,    1000,   DELAY_LOW,      50,     0,      0,      MOD_FLAMETHROWER      },  //	WP_FLAMETHROWER			// 9
 	{   50,             1,      50,     1000,    DELAY_LOW,      0,     0,      0,      MOD_TESLA               },  //	WP_TESLA				// 10
 	{   MAX_AMMO_9MM,   1,      8,      1600,   DELAY_PISTOL,   350,    0,      0,      MOD_P38                 },  //	WP_P38					// 12
@@ -110,7 +110,7 @@ ammotable_t ammoTable[] = {
 	{   MAX_AMMO_BARAMMO, 1,    8,      1650,   DELAY_LOW,      300,    0,      0,      MOD_M1GARAND            },  //	WP_M1GARAND				// 16
 	{   MAX_AMMO_BARAMMO, 1,    20,     2250,   DELAY_LOW,      140,    0,      0,      MOD_BAR                 },  //	WP_BAR					// 17
 	{   MAX_AMMO_44AMMO,  1,    30,     2600,   DELAY_LOW,      105,    0,      0,      MOD_MP44                },  //	WP_MP44					// 18
-	{   MAX_AMMO_MAUSER,  2,    50,     2600,   DELAY_LOW,      65,     2500,   200,    MOD_MG42M               },  //	WP_MG42M                // 19
+	{   MAX_AMMO_MAUSER,  2,    50,     2600,   DELAY_LOW,      65,     0,      0,    MOD_MG42M               },  //	WP_MG42M                // 19
 	{   MAX_AMMO_M97,     1,    6,      2000,   DELAY_LOW,      1250,   0,      0,      MOD_M97                 },  //	WP_M97                  // 20
 	{   MAX_AMMO_9MM,     1,    30,     2600,   DELAY_LOW,      120,    0,      0,      MOD_M3A1                },  //	WP_M3A1					// 21
 	{   MAX_AMMO_BARAMMO, 1,    5,      2600,   DELAY_HIGH,     1400,    0,      0,     MOD_SPRINGFIELD         },  //	WP_SPRINGFIELD		    // 22
