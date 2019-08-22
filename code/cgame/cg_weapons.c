@@ -3181,8 +3181,8 @@ void CG_AddViewWeapon( playerState_t *ps ) {
 		break;
 		case WP_SPRINGFIELD:
 		case WP_SPRINGFIELDSCOPE:
-			 gunoff[0] = -2;
-		     gunoff[1] = 0;
+			 gunoff[0] = -6;
+		     gunoff[1] = -1;
 		     gunoff[2] = 2;
 		break;
 		case WP_G43:

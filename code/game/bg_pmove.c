@@ -2026,6 +2026,13 @@ static void PM_BeginWeaponReload( int weapon ) {
 			return;	
 		}
 
+		//if((weapon == WP_SPRINGFIELD) && pm->ps->ammoclip[WP_SPRINGFIELD] > 5) {
+			//return;	
+		//}
+		//if((weapon == WP_SPRINGFIELDSCOPE) && pm->ps->ammoclip[WP_SPRINGFIELDSCOPE] > 5) {
+			//return;	
+		//}
+
 	// no reload when you've got a chair in your hands
 	if ( pm->ps->eFlags & EF_MELEE_ACTIVE ) {
 		return;
@@ -2041,6 +2048,7 @@ static void PM_BeginWeaponReload( int weapon ) {
 	case WP_GRENADE_LAUNCHER:
 	case WP_GRENADE_PINEAPPLE:
 		break;
+
 
 		// no reloading
 	case WP_KNIFE:
@@ -2296,6 +2304,13 @@ static void PM_ReloadClip( int weapon ) {
 	if( weapon == WP_M97 ) {
 		ammomove = 1;
 	}
+	//if( weapon == WP_SPRINGFIELD ) {
+		//ammomove = 5;
+	//}
+
+	//if( weapon == WP_SPRINGFIELDSCOPE ) {
+	//	ammomove = 5;
+	//}
 
 	if ( ammoreserve < ammomove ) {
 		ammomove = ammoreserve;
