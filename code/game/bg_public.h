@@ -287,6 +287,11 @@ typedef struct
 {
 	qboolean bAutoReload;
 	qboolean m97reloadInterrupt;
+	int lastRecoilDeltaTime;
+	int weapRecoilDuration;
+	float weapRecoilYaw;
+	float weapRecoilPitch;
+	int weapRecoilTime;
 } pmoveExt_t;
 
 typedef struct {
