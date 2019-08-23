@@ -1536,6 +1536,7 @@ void SetupWeaponsForSkill_EASY() // Easy
 	// barammo
 	ammoTable[WP_BAR].maxammo = 300;
 	ammoTable[WP_M1GARAND].maxammo = 300;
+	//Sprng
 	ammoTable[WP_SPRINGFIELD].maxammo = 300;
 	ammoTable[WP_SPRINGFIELDSCOPE].maxammo = 300;
 	// mp44
@@ -1585,6 +1586,7 @@ void SetupWeaponsForSkill_MEDIUM() // Medium
 	// barammo
 	ammoTable[WP_BAR].maxammo = 200;
 	ammoTable[WP_M1GARAND].maxammo = 200;
+	// sprng
 	ammoTable[WP_SPRINGFIELD].maxammo = 200;
 	ammoTable[WP_SPRINGFIELDSCOPE].maxammo = 200;
 	// mp44
@@ -1633,6 +1635,7 @@ void SetupWeaponsForSkill_HARD() // Hard
 	// barammo
 	ammoTable[WP_BAR].maxammo = 180;
 	ammoTable[WP_M1GARAND].maxammo = 180;
+	// sprng
 	ammoTable[WP_SPRINGFIELD].maxammo = 180;
 	ammoTable[WP_SPRINGFIELDSCOPE].maxammo = 180;
 	// mp44
@@ -1682,6 +1685,7 @@ void SetupWeaponsForSkill_MAX() // Max
 	// barammo
 	ammoTable[WP_BAR].maxammo = 150;
 	ammoTable[WP_M1GARAND].maxammo = 150;
+	//sprng
 	ammoTable[WP_SPRINGFIELD].maxammo = 150;
 	ammoTable[WP_SPRINGFIELDSCOPE].maxammo = 150;
 	// mp44

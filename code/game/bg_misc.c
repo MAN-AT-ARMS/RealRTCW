@@ -59,6 +59,7 @@ extern vmCvar_t g_gametype;
 #define MAX_AMMO_BARAMMO    150  
 #define MAX_AMMO_44AMMO     120
 #define MAX_AMMO_M97        24
+#define MAX_AMMO_SPRNG  150
 
 
 // these defines are matched with the character torso animations
@@ -113,8 +114,8 @@ ammotable_t ammoTable[] = {
 	{   MAX_AMMO_MAUSER,  2,    50,     2600,   DELAY_LOW,      65,     0,      0,    MOD_MG42M               },  //	WP_MG42M                // 19
 	{   MAX_AMMO_M97,     1,    6,      2000,   DELAY_LOW,      1250,   0,      0,      MOD_M97                 },  //	WP_M97                  // 20
 	{   MAX_AMMO_9MM,     1,    30,     2600,   DELAY_LOW,      120,    0,      0,      MOD_M3A1                },  //	WP_M3A1					// 21
-	{   MAX_AMMO_BARAMMO, 1,    10,      2600,   DELAY_HIGH,     1400,    0,      0,     MOD_SPRINGFIELD         },  //	WP_SPRINGFIELD		    // 22
-	{   MAX_AMMO_BARAMMO, 1,    10,      2600,   DELAY_HIGH,     1400,    0,      0,     MOD_SPRINGFIELDSCOPE    },  //	WP_SPRINGFIELDSCOPE		// 23
+	{   MAX_AMMO_SPRNG, 1,    10,      2600,   DELAY_HIGH,     1300,    0,      0,     MOD_SPRINGFIELD         },  //	WP_SPRINGFIELD		    // 22
+	{   MAX_AMMO_SPRNG, 1,    10,      2600,   DELAY_HIGH,     1300,    0,      0,     MOD_SPRINGFIELDSCOPE    },  //	WP_SPRINGFIELDSCOPE		// 23
 
 
 
@@ -1881,7 +1882,7 @@ model="models/weapons2/springfield/springfield.md3"
 		30,
 		IT_WEAPON,
 		WP_SPRINGFIELD,
-		WP_BAR,
+		WP_SPRINGFIELD,
 		WP_SPRINGFIELD,
 		"",                      // precache
 		"",                      // sounds
@@ -1907,7 +1908,7 @@ model="models/weapons2/springfield/pu_springfield_scope.md3"
 		30,
 		IT_WEAPON,
 		WP_SPRINGFIELDSCOPE,
-		WP_BAR,
+		WP_SPRINGFIELD,
 		WP_SPRINGFIELD,
 		"",                          // precache
 		"",                          // sounds
@@ -1919,6 +1920,30 @@ model="models/weapons2/springfield/pu_springfield_scope.md3"
 	//
 
 // RealRTCW ammo
+
+/*QUAKED ammo_sprng (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
+used by: Bar, M1 Garand
+
+-------- MODEL FOR RADIANT ONLY - DO NOT SET THIS AS A KEY --------
+model="models/powerups/ammo/sprng.md3"
+*/
+{
+		"ammo_barammo",
+		"sound/misc/am_pkup.wav",
+		{ "models/powerups/ammo/ammosprng.md3",
+		  0, 0, 0,    0 },
+		"icons/iconw_luger_1", // icon
+		NULL,               // ammo icon
+		"sprng",           // pickup			//----(SA)	changed
+		30,
+		IT_AMMO,
+		WP_SPRINGFIELD,
+		WP_SPRINGFIELD,
+		WP_SPRINGFIELD,
+		"",                  // precache
+		"",                  // sounds
+		{20,20,15,10}	
+	},
 
 
 /*QUAKED ammo_barammo (.3 .3 1) (-16 -16 -16) (16 16 16) SUSPENDED SPIN - RESPAWN
