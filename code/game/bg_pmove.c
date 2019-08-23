@@ -558,7 +558,7 @@ static qboolean PM_CheckJump( void ) {
 		return qfalse;      // don't allow jump until all buttons are up
 	}
 
-    if  ( pm->ps->weapon == WP_MG42M ) { // gothicstein
+    if  ( pm->ps->weapon == WP_MG42M || pm->ps->weapon == WP_TESLA || pm->ps->weapon == WP_FLAMETHROWER ) { // gothicstein
 		return qfalse;
 	}
 
