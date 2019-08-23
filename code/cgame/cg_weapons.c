@@ -4857,7 +4857,7 @@ void CG_WeaponFireRecoil( int weapon ) {
 		break;
 	case WP_M97:
 		pitchRecoilAdd = 1;
-		pitchAdd = 12 + rand() % 3;
+		pitchAdd = 7 + rand() % 3;
 		yawRandom = 3;
 		pitchAdd *= 0.5;
 		yawRandom *= 0.5;
