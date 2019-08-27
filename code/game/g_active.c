@@ -780,7 +780,7 @@ void ClientThink_real( gentity_t *ent ) {
 	usercmd_t   *ucmd;
 	//int i;
 	int monsterslick = 0;
-	vec3_t muzzlebounce;      // JPW NERVE
+	//vec3_t muzzlebounce;      // JPW NERVE
 
 
 	// Rafael wolfkick
@@ -876,13 +876,13 @@ void ClientThink_real( gentity_t *ent ) {
 
 	// NOTE: -------------- SP uses now too
 // JPW NERVE do some time-based muzzle flip -- this never gets touched in single player (see g_weapon.c)
-// #define RIFLE_SHAKE_TIME 150 // JPW NERVE this one goes with the commented out old damped "realistic" behavior below
-#define RIFLE_SHAKE_TIME 300 // per Id request, longer recoil time
-	if ( client->sniperRifleFiredTime ) {
-		if ( level.time - client->sniperRifleFiredTime > RIFLE_SHAKE_TIME ) {
-			client->sniperRifleFiredTime = 0;
-		} else {
-			VectorCopy( client->ps.viewangles,muzzlebounce );
+//#define RIFLE_SHAKE_TIME 150 // JPW NERVE this one goes with the commented out old damped "realistic" behavior below
+//#define RIFLE_SHAKE_TIME 300 // per Id request, longer recoil time
+	//if ( client->sniperRifleFiredTime ) {
+		//if ( level.time - client->sniperRifleFiredTime > RIFLE_SHAKE_TIME ) {
+		//client->sniperRifleFiredTime = 0;
+		//} else {
+		//	VectorCopy( client->ps.viewangles,muzzlebounce );
 
 // JPW old damped behavior -- feels more like a real rifle (modeled on Remington 700 7.62x51mm w/ 14x scope)
 /*
@@ -902,13 +902,13 @@ void ClientThink_real( gentity_t *ent ) {
 */
 
 			// NOTE: ----------------- SP uses this method
-			muzzlebounce[PITCH] -= 0.25*client->sniperRifleMuzzlePitch*cos( 2.5*( level.time - client->sniperRifleFiredTime ) / RIFLE_SHAKE_TIME );
-			muzzlebounce[YAW] += 0.2*client->sniperRifleMuzzleYaw*cos( 1.0 - ( level.time - client->sniperRifleFiredTime )*3 / RIFLE_SHAKE_TIME );
-			muzzlebounce[PITCH] -= 0.25*client->sniperRifleMuzzlePitch*random() * ( 1.0f - ( level.time - client->sniperRifleFiredTime ) / RIFLE_SHAKE_TIME );
-			muzzlebounce[YAW] += 0.2 * crandom() * ( 1.0f - ( level.time - client->sniperRifleFiredTime ) / RIFLE_SHAKE_TIME );
-			SetClientViewAngle( ent,muzzlebounce );
-		}
-	}
+			//muzzlebounce[PITCH] -= 0.25*client->sniperRifleMuzzlePitch*cos( 2.5*( level.time - client->sniperRifleFiredTime ) / RIFLE_SHAKE_TIME );
+			//muzzlebounce[YAW] += 0.2*client->sniperRifleMuzzleYaw*cos( 1.0 - ( level.time - client->sniperRifleFiredTime )*3 / RIFLE_SHAKE_TIME );
+			//muzzlebounce[PITCH] -= 0.25*client->sniperRifleMuzzlePitch*random() * ( 1.0f - ( level.time - client->sniperRifleFiredTime ) / RIFLE_SHAKE_TIME );
+			//muzzlebounce[YAW] += 0.2 * crandom() * ( 1.0f - ( level.time - client->sniperRifleFiredTime ) / RIFLE_SHAKE_TIME );
+			//SetClientViewAngle( ent,muzzlebounce );
+		//}
+	//}
 	if ( client->ps.stats[STAT_PLAYER_CLASS] == PC_MEDIC ) {
 		if ( level.time > client->ps.powerups[PW_REGEN] + 5000 ) {
 			client->ps.powerups[PW_REGEN] = level.time;

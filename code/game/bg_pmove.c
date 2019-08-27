@@ -3681,6 +3681,7 @@ static void PM_Weapon( void ) {
 	pm->pmext->lastRecoilDeltaTime = 0;
 
 	switch ( pm->ps->weapon ) {
+	// MG42 - High Recoil
 	case WP_MG42M:
 		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
 		pm->pmext->weapRecoilDuration = 200;
@@ -3692,42 +3693,91 @@ static void PM_Weapon( void ) {
 			pm->pmext->weapRecoilPitch = .75f * random() * .2f;
 		}
 		break;
-	case WP_M1GARAND:
+	// Semi-automatic rifles - Medium recoil
+	case WP_M1GARAND: 
 	case WP_G43:
 		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
 		pm->pmext->weapRecoilDuration = 150;
 		if ( pm->ps->pm_flags & PMF_DUCKED ) {
-			pm->pmext->weapRecoilYaw = crandom() * .5f;
-			pm->pmext->weapRecoilPitch = .15f * random() * .15f;
+			pm->pmext->weapRecoilYaw = crandom() * .1f;
+			pm->pmext->weapRecoilPitch = .1f * random();
 		} else {
-			pm->pmext->weapRecoilYaw = crandom() * .25f;
-			pm->pmext->weapRecoilPitch = .45f * random() * .2f;
+			pm->pmext->weapRecoilYaw = crandom() * .2f;
+			pm->pmext->weapRecoilPitch = .2f * random();
 		}
 		break;
-	case WP_M97:
+	// Shotgun - High recoil
+	case WP_M97: 
 		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
 		pm->pmext->weapRecoilDuration = 150;
 		if ( pm->ps->pm_flags & PMF_DUCKED ) {
 			pm->pmext->weapRecoilYaw = crandom() * .5f;
-			pm->pmext->weapRecoilPitch = .65f * random() * .15f;
+			pm->pmext->weapRecoilPitch = .5f * random();
 		} else {
-			pm->pmext->weapRecoilYaw = crandom() * .25f;
-			pm->pmext->weapRecoilPitch = .95f * random() * .2f;
+			pm->pmext->weapRecoilYaw = crandom() * .9f;
+			pm->pmext->weapRecoilPitch = .95f * random();
 		}
 		break;
+	// bolt-action rifles - High recoil to compensate for superb stopping power
 	case WP_SPRINGFIELD:
 	case WP_MAUSER:
 	case WP_GARAND:
 		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
 		pm->pmext->weapRecoilDuration = 100;
 		if ( pm->ps->pm_flags & PMF_DUCKED ) {
-		    pm->pmext->weapRecoilYaw = crandom() * .5f; 
-		    pm->pmext->weapRecoilPitch = .55f * random() * .15f;
+		    pm->pmext->weapRecoilYaw = crandom() * 1.0f; 
+		    pm->pmext->weapRecoilPitch = .9f * random();
 		} else {
-			pm->pmext->weapRecoilYaw = crandom() * .15f;
-			pm->pmext->weapRecoilPitch = .85f * random() * .2f;
+			pm->pmext->weapRecoilYaw = crandom() * 1.5f;
+			pm->pmext->weapRecoilPitch = 1.0f * random();
 		}
 		break;
+	// sniper rifles - High recoil, but less than unscoped mode.
+	case WP_SNIPERRIFLE:
+		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
+		pm->pmext->weapRecoilDuration = 300;
+		if ( pm->ps->pm_flags & PMF_DUCKED ) {
+		    pm->pmext->weapRecoilYaw = crandom() * .5f;
+		    pm->pmext->weapRecoilPitch = .25f;
+		} else {
+			pm->pmext->weapRecoilYaw = crandom() * .8f;
+			pm->pmext->weapRecoilPitch = .8f;
+		}
+		break;
+	case WP_SPRINGFIELDSCOPE:
+		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
+		pm->pmext->weapRecoilDuration = 300;
+		if ( pm->ps->pm_flags & PMF_DUCKED ) {
+		    pm->pmext->weapRecoilYaw = crandom() * .4f;
+		    pm->pmext->weapRecoilPitch = .2f;
+		} else {
+			pm->pmext->weapRecoilYaw = crandom() * .6f;
+			pm->pmext->weapRecoilPitch = .6f;
+		}
+		break;
+	case WP_SNOOPERSCOPE:
+		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
+		pm->pmext->weapRecoilDuration = 300;
+		if ( pm->ps->pm_flags & PMF_DUCKED ) {
+		    pm->pmext->weapRecoilYaw = crandom() * .4f;
+		    pm->pmext->weapRecoilPitch = .2f;
+		} else {
+			pm->pmext->weapRecoilYaw = crandom() * .6f;
+			pm->pmext->weapRecoilPitch = .6f;
+		}
+		break;
+	case WP_FG42SCOPE:
+		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
+		pm->pmext->weapRecoilDuration = 300;
+		if ( pm->ps->pm_flags & PMF_DUCKED ) {
+		    pm->pmext->weapRecoilYaw = crandom() * .1f;
+		    pm->pmext->weapRecoilPitch = .1f;
+		} else {
+			pm->pmext->weapRecoilYaw = crandom() * .2f;
+			pm->pmext->weapRecoilPitch = .2f;
+		}
+		break;
+	// Pistols - medium recoil
 	case WP_LUGER:
 	case WP_SILENCER:
 	case WP_COLT:
@@ -3737,11 +3787,76 @@ static void PM_Weapon( void ) {
 		pm->pmext->weapRecoilYaw = 0.f;
 		pm->pmext->weapRecoilPitch = .35f * random() * .15f;
 		break;
+		// SMGs - Low recoil
+	case WP_MP40:
+	case WP_STEN:
+	case WP_M3A1: 
+		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
+		pm->pmext->weapRecoilDuration = 100;
+		if ( pm->ps->pm_flags & PMF_DUCKED ) {
+			pm->pmext->weapRecoilYaw = crandom() * .01f;
+			pm->pmext->weapRecoilPitch = .01f * random();
+		} else {
+			pm->pmext->weapRecoilYaw = crandom() * .1f;
+			pm->pmext->weapRecoilPitch = .1f * random();
+		}
+		break;
+	case WP_THOMPSON:
+		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
+		pm->pmext->weapRecoilDuration = 100;
+		if ( pm->ps->pm_flags & PMF_DUCKED ) {
+			pm->pmext->weapRecoilYaw = crandom() * .1f;
+			pm->pmext->weapRecoilPitch = .1f * random();
+		} else {
+			pm->pmext->weapRecoilYaw = crandom() * .2f;
+			pm->pmext->weapRecoilPitch = .2f * random();
+		}
+		break;
+		// Assault Rifles - Low recoil
+	case WP_FG42:
+	case WP_BAR:
+	case WP_MP44: 
+		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
+		pm->pmext->weapRecoilDuration = 100;
+		if ( pm->ps->pm_flags & PMF_DUCKED ) {
+			pm->pmext->weapRecoilYaw = crandom() * .01f;
+			pm->pmext->weapRecoilPitch = .01f * random();
+		} else {
+			pm->pmext->weapRecoilYaw = crandom() * .1f;
+			pm->pmext->weapRecoilPitch = .1f * random();
+		}
+		break;
+		// Venom Gun - Low recoil
+	case WP_VENOM:
+		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
+		pm->pmext->weapRecoilDuration = 100;
+		if ( pm->ps->pm_flags & PMF_DUCKED ) {
+			pm->pmext->weapRecoilYaw = crandom() * .1f;
+			pm->pmext->weapRecoilPitch = .1f * random();
+		} else {
+			pm->pmext->weapRecoilYaw = crandom() * .2f;
+			pm->pmext->weapRecoilPitch = .2f * random();
+		}
+		break;
+         // Panzerfaust - Medium recoil
+	case WP_PANZERFAUST:
+		pm->pmext->weapRecoilTime = pm->cmd.serverTime;
+		pm->pmext->weapRecoilDuration = 100;
+		if ( pm->ps->pm_flags & PMF_DUCKED ) {
+			pm->pmext->weapRecoilYaw = crandom() * .5f;
+			pm->pmext->weapRecoilPitch = .5f * random();
+		} else {
+			pm->pmext->weapRecoilYaw = crandom() * 1.0f;
+			pm->pmext->weapRecoilPitch = 1.0f * random();
+		}
+		break;	
 	default:
 		pm->pmext->weapRecoilTime = 0;
 		pm->pmext->weapRecoilYaw = 0.f;
 		break;
 	}
+
+
 
 	// check for overheat
 
