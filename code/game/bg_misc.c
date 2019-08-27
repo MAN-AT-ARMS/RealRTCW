@@ -113,7 +113,7 @@ ammotable_t ammoTable[] = {
 	{   MAX_AMMO_44AMMO,  1,    30,     2600,   DELAY_LOW,      105,    0,      0,      MOD_MP44                },  //	WP_MP44					// 18
 	{   MAX_AMMO_MAUSER,  2,    50,     2600,   DELAY_LOW,      65,     0,      0,    MOD_MG42M               },  //	WP_MG42M                // 19
 	{   MAX_AMMO_M97,     1,    6,      2000,   DELAY_LOW,      1250,   0,      0,      MOD_M97                 },  //	WP_M97                  // 20
-	{   MAX_AMMO_9MM,     1,    32,     2600,   DELAY_LOW,      110,    0,      0,      MOD_M3A1                },  //	WP_M3A1					// 21
+	{   MAX_AMMO_9MM,     1,    30,     2600,   DELAY_LOW,      110,    0,      0,      MOD_M3A1                },  //	WP_M3A1					// 21
 	{   MAX_AMMO_SPRNG, 1,    10,      2600,   DELAY_HIGH,     1300,    0,      0,     MOD_SPRINGFIELD         },  //	WP_SPRINGFIELD		    // 22
 	{   MAX_AMMO_SPRNG, 1,    10,      2600,   DELAY_HIGH,     1300,    0,      0,     MOD_SPRINGFIELDSCOPE    },  //	WP_SPRINGFIELDSCOPE		// 23
 
@@ -128,7 +128,7 @@ ammotable_t ammoTable[] = {
 	{   MAX_AMMO_GARAND,1,      5,      3000,   0,              1200,   0,      0,      MOD_SNOOPERSCOPE        },  //	WP_SNIPER_AM			// 29
 
 	{   MAX_AMMO_FG42,  1,      20,     2000,   DELAY_LOW,      170,    0,      0,      MOD_FG42SCOPE           },  //	WP_FG42SCOPE			// 30
-	{   MAX_AMMO_9MM,   1,      32,     3100,   DELAY_LOW,      115,    900,    500,    MOD_STEN                },  //	WP_STEN					// 31
+	{   MAX_AMMO_9MM,   1,      30,     3100,   DELAY_LOW,      115,    900,    500,    MOD_STEN                },  //	WP_STEN					// 31
 	{   MAX_AMMO_9MM,   1,      8,      1500,   DELAY_PISTOL,   400,    0,      0,      MOD_SILENCER            },  //	WP_SILENCER				// 32
 	{   MAX_AMMO_45,    1,      7,      2700,   DELAY_PISTOL,   200,    0,      0,      MOD_AKIMBO              },  //	WP_AKIMBO				// 33
 
